@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react'
-import { useCart } from '../../context/cartContext'
+import { Link } from 'react-router';
+
 
 
 const ProductList = () => {
 
-  const { addToCart } = useCart();
   const [products, setProduct] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://fakestoreapi.com/products")
+        const response = await fetch("https://fakestoreapi.com/products/")
         const data = await response.json();
         console.log(data)
         setProduct(data)
@@ -31,12 +31,12 @@ const ProductList = () => {
   return (
     <div>
       <h1>Product Listing</h1>
-      <ul>
+      <ul className="grid grid-cols-4 gap-4 items-center justify-center">
         {products.map((product) => (
-          <li key={product.id}>
-            <img src={product.image} alt={product.title} style={{ width: 50 }} />
-            <span>{product.title}</span> - ${product.price.toFixed(2)}
-            <button onClick={() => addToCart(product)} className='m-3'>Add to Cart</button>
+          <li className='h-[300px] w-[230px] text-center p-2 flex flex-col items-center' key={product.id}>
+            <img className='w-[170px]' src={product.image} alt={product.title} />
+            <span>{product.title.substring(0,12)}</span> - ${product.price.toFixed(2)}
+            <Link to={`/productList/${product.id}`} className=''>Buy Now</Link>
           </li>
         ))}
       </ul>
