@@ -10,7 +10,7 @@ const App = () => {
       <nav className="flex flex-col">
         <Link to="/about">About</Link>
         <Link to="/">Product</Link>
-        <Link to="/cart">Cart</Link>
+        
       </nav>
       <Routes>
         <Route path="/" element={<ProductList />} />
