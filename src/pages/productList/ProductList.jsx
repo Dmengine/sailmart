@@ -10,7 +10,6 @@ const ProductList = () => {
       try {
         const response = await fetch("https://fakestoreapi.com/products/");
         const data = await response.json();
-        console.log(data)
         setProduct(data)
       }catch (error) {
         console.error(error)
@@ -28,29 +27,9 @@ const ProductList = () => {
   return (
     <div>
       <h1>Product Listing</h1>
-      {/* <ul className="grid grid-cols-4 gap-4 items-center justify-center">
-        {products.map((product) => (
-          <li
-            className="h-[300px] w-[230px] text-center p-2 flex flex-col items-center justify-center"
-            key={product.id}
-          >
-            <img
-              className="w-[170px]"
-              src={product.image}
-              alt={product.title}
-            />
-            <span>{product.title.substring(0, 12)}</span> - $
-            {product.price.toFixed(2)}
-            <Link to={`/productList/${product.id}`} className="">
-              Buy Now
-            </Link>
-          </li>
-        ))}
-      </ul> */}
-
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 items-center justify-center px-4 m-auto">
       {products.map((product) => (
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 h-full" key={product.id}> 
+        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm  h-full" key={product.id}> 
               <img
             className="p-8 rounded-t-lg h-[250px]"
             src={product.image}
@@ -118,7 +97,7 @@ const ProductList = () => {
               ${product.price.toFixed(2)}
             </span>
             <Link to={`/productList/${product.id}`}
-              className="text-white bg-red-800 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-400 dark:hover:bg-red-100 dark:focus:ring-red-800"
+              className="text-white bg-red-800 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-red-400"
             >
               Buy Now
             </Link>

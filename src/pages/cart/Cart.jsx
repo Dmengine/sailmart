@@ -82,7 +82,7 @@ const Cart = () => {
                 <div className="flex-1">
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    className="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-lg font-medium md:text-base"
+                    className="cursor-pointer px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 text-lg font-medium md:text-base"
                   >
                     Remove
                   </button>
@@ -97,7 +97,7 @@ const Cart = () => {
           </h2>
           <button
             onClick={handleProceedToCheckout}
-            className="px-5 py-3 bg-green-500 text-white rounded mt-5 hover:bg-green-600 text-lg font-semibold"
+            className="cursor-pointer px-5 py-3 bg-green-500 text-white rounded mt-5 hover:bg-green-600 text-lg font-semibold"
           >
             Proceed to Checkout
           </button>

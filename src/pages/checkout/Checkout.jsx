@@ -167,7 +167,7 @@ const CheckoutPage = () => {
       <div className="text-center mt-8">
         <button
           onClick={handlePlaceOrder}
-          className="bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 w-full sm:w-auto"
+          className="cursor-pointer bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 w-full sm:w-auto"
         >
           Place Order
         </button>
