@@ -4,7 +4,7 @@ import Cart from './pages/cart/Cart';
 import ProductList from './pages/productList/ProductList';
 import About from './pages/about/About';
 import ProductDetails from './pages/productDetails/ProductDetails';
-import About from './pages/about/About';
+
 
 const App = () => {
   return (
