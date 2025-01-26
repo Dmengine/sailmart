@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import star_icon from '/src/assets/star_icon.png';
 import star_dull_icon from '/src/assets/star_dull_icon.png';
 import RelatedProducts from '../RelatedProducts';
+import { Link } from 'react-router';
 
 
 const ProductDetails = () => {
@@ -81,16 +82,16 @@ const ProductDetails = () => {
               </div>
               </div>
               
-              <div className="flex -mx-2 mb-4">
+              <div className="flex -mx-2 mb-4 items-center">
                 <div className="w-1/2 px-2">
                   <button onClick={() => addToCart(product)} className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
                     Add to Cart
                   </button>
                 </div>
                 <div className="w-1/2 px-2">
-                  <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
-                    Add to Wishlist
-                  </button>
+                  <a href="/cart"><button className="w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
+                    Go to Cart
+                  </button></a>
                 </div>
               </div>
             </div>

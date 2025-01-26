@@ -33,7 +33,7 @@ const ProductList = () => {
       <h1>Product Listing</h1>
       <ul className="grid grid-cols-4 gap-4 items-center justify-center">
         {products.map((product) => (
-          <li className='h-[300px] w-[230px] text-center p-2 flex flex-col items-center' key={product.id}>
+          <li className='h-[300px] w-[230px] text-center p-2 flex flex-col items-center justify-center' key={product.id}>
             <img className='w-[170px]' src={product.image} alt={product.title} />
             <span>{product.title.substring(0,12)}</span> - ${product.price.toFixed(2)}
             <Link to={`/productList/${product.id}`} className=''>Buy Now</Link>
