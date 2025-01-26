@@ -24,22 +24,22 @@ export const CartProvider = ({ children }) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
       let updatedItems;
-
+  
       if (existingItem) {
-        // If item already in cart, update quantity
         updatedItems = prevItems.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+          i.id === item.id
+            ? { ...i, quantity: item.quantity || i.quantity + 1 }
+            : i
         );
       } else {
-        // If item not in cart, add with initial quantity
-        updatedItems = [...prevItems, { ...item, quantity: 1 }];
+        updatedItems = [...prevItems, { ...item, quantity: item.quantity || 1 }];
       }
-
+  
       updateLocalStorage(updatedItems);
-
       return updatedItems;
     });
   };
+  
 
   // Remove item from cart
   const removeFromCart = (id) => {
