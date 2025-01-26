@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../../context/cartContext';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import star_icon from '/src/assets/star_icon.png';
 import star_dull_icon from '/src/assets/star_dull_icon.png';
-import RelatedProducts from '../RelatedProducts';
+import RelatedProducts from '../RelatedProducts/RelatedProducts';
 import { Link } from 'react-router';
 
 
@@ -53,29 +53,29 @@ const ProductDetails = () => {
               <div className='flex space-x-4 mb-4'>
                 <div className='flex flex-col space-y-4'>
                 <img
-                  className="w-[150px] h-[125px]"
+                  className="w-[150px] md:h-[125px] h-[76px]"
                   src={product.image}
                   alt={product.title}
                 />
                 <img
-                  className="w-[150px] h-[125px]"
+                  className="w-[150px] md:h-[125px] h-[76px]"
                   src={product.image}
                   alt={product.title}
                 />
                 <img
-                  className="w-[150px] h-[125px]"
+                  className="w-[150px] md:h-[125px] h-[76px]"
                   src={product.image}
                   alt={product.title}
                 />
                 <img
-                  className="w-[150px] h-[125px]"
+                  className="w-[150px] md:h-[125px] h-[76px]"
                   src={product.image}
                   alt={product.title}
                 />
                 </div>
-                <div className="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
+                <div className=" rounded-lg dark:bg-gray-700 mb-4">
                 <img
-                  className="w-[550px] h-[550px]"
+                  className="md:w-[550px] md:h-[550px] w-[550px] h-[350px]"
                   src={product.image}
                   alt={product.title}
                 />
@@ -84,12 +84,12 @@ const ProductDetails = () => {
               
               <div className="flex -mx-2 mb-4 items-center">
                 <div className="w-1/2 px-2">
-                  <button onClick={() => addToCart(product)} className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
+                  <button onClick={() => addToCart(product)} className="w-full bg-red-800 dark:bg-red-600 text-white py-2 px-4 rounded-full font-bold hover:bg-red-500 dark:hover:bg-red-300">
                     Add to Cart
                   </button>
                 </div>
                 <div className="w-1/2 px-2">
-                  <a href="/cart"><button className="w-[200px] bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
+                  <a href="/cart"><button className="md:w-[200px] w-[150px] bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
                     Go to Cart
                   </button></a>
                 </div>
@@ -99,13 +99,18 @@ const ProductDetails = () => {
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
                 {product.title}
               </h2>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-2 items-center my-4">
             <img src={star_icon} alt="" />
             <img src={star_icon} alt="" />
             <img src={star_icon} alt="" />
             <img src={star_icon} alt="" />
             <img src={star_dull_icon} alt="" />
-            <p>(122)</p>
+         </div>
+
+         <div className='my-4'>
+            <p className='text-sm font-bold'>rate: ({product.rating.rate})</p>
+            <p className='text-sm font-bold'>count: {product.rating.count}</p>
+
          </div>
               {/* <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
@@ -171,6 +176,11 @@ const ProductDetails = () => {
                   {product.description}
                 </p>
               </div>
+
+              <div className='mt-4'>
+                <p>Category: {product.category}</p>
+                <p>Tags: Modern, Latest</p>
+              </div>
             </div>
           </div>
         </div>
@@ -178,7 +188,7 @@ const ProductDetails = () => {
 
       <div>
         <h1 className='font-bold m-8 mt-16 text-lg'>Related Items</h1>
-        {/* <RelatedProducts /> */}
+        <RelatedProducts />
       </div>
     </div>
   )
