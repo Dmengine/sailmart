@@ -6,6 +6,7 @@ import About from './pages/about/About';
 import ProductDetails from './pages/productDetails/ProductDetails';
 
 
+
 const App = () => {
   return (
     <Router>
@@ -22,6 +23,9 @@ const App = () => {
         <Route path="/cart" element={<Cart/>} />
       </Routes>
     </Router>
+
+    
+
   )
 }
 

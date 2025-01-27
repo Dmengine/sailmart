@@ -1,38 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { useCart } from '../../context/cartContext';
-import { useParams } from 'react-router-dom';
-import star_icon from '/src/assets/star_icon.png';
-import star_dull_icon from '/src/assets/star_dull_icon.png';
-import RelatedProducts from '../RelatedProducts/RelatedProducts';
-import { Link } from 'react-router';
-
+import React, { useEffect, useState } from "react";
+import { useCart } from "../../context/cartContext";
+import { useParams } from "react-router-dom";
+import star_icon from "/src/assets/star_icon.png";
+import star_dull_icon from "/src/assets/star_dull_icon.png";
+import RelatedProducts from "../RelatedProducts/RelatedProducts";
+import { Link } from "react-router";
+import Skeleton from "react-loading-skeleton";
 
 const ProductDetails = () => {
-
   const { addToCart } = useCart();
-  const {id} = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
-   useEffect(() => {
-      const fetchProducts = async () => {
-        try {
-          const response = await fetch(`https://fakestoreapi.com/products/${id}`)
-          const data = await response.json();
-          console.log(data)
-          setProduct(data)
-        }catch (error) {
-          console.error(error)
-        } finally {
-          setLoading(false);
-        }
-      };
-      fetchProducts();
-    }, [])
-  
-    if (loading){
-      return <p>Loading products...</p>
-    }
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const data = await response.json();
+        console.log(data);
+        setProduct(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="col-md-3">
+        <Skeleton height={350} />
+      </div>
+    );
+  }
 
   // useEffect(() => {
   //   const fetchProducts = async () => {
@@ -50,48 +53,53 @@ const ProductDetails = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row -mx-4">
             <div className="md:flex-1 px-4">
-              <div className='flex space-x-4 mb-4'>
-                <div className='flex flex-col space-y-4'>
-                <img
-                  className="w-[150px] md:h-[125px] h-[76px]"
-                  src={product.image}
-                  alt={product.title}
-                />
-                <img
-                  className="w-[150px] md:h-[125px] h-[76px]"
-                  src={product.image}
-                  alt={product.title}
-                />
-                <img
-                  className="w-[150px] md:h-[125px] h-[76px]"
-                  src={product.image}
-                  alt={product.title}
-                />
-                <img
-                  className="w-[150px] md:h-[125px] h-[76px]"
-                  src={product.image}
-                  alt={product.title}
-                />
+              <div className="flex space-x-4 mb-4">
+                <div className="flex flex-col space-y-4">
+                  <img
+                    className="w-[150px] md:h-[125px] h-[76px]"
+                    src={product.image}
+                    alt={product.title}
+                  />
+                  <img
+                    className="w-[150px] md:h-[125px] h-[76px]"
+                    src={product.image}
+                    alt={product.title}
+                  />
+                  <img
+                    className="w-[150px] md:h-[125px] h-[76px]"
+                    src={product.image}
+                    alt={product.title}
+                  />
+                  <img
+                    className="w-[150px] md:h-[125px] h-[76px]"
+                    src={product.image}
+                    alt={product.title}
+                  />
                 </div>
                 <div className=" rounded-lg dark:bg-gray-700 mb-4">
-                <img
-                  className="md:w-[550px] md:h-[550px] w-[550px] h-[350px]"
-                  src={product.image}
-                  alt={product.title}
-                />
+                  <img
+                    className="md:w-[550px] md:h-[550px] w-[550px] h-[350px]"
+                    src={product.image}
+                    alt={product.title}
+                  />
+                </div>
               </div>
-              </div>
-              
+
               <div className="flex -mx-2 mb-4 items-center">
                 <div className="w-1/2 px-2">
-                  <button onClick={() => addToCart(product)} className="w-full bg-red-800 dark:bg-red-600 text-white py-2 px-4 rounded-full font-bold hover:bg-red-500 dark:hover:bg-red-300">
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="w-full bg-red-800 dark:bg-red-600 text-white py-2 px-4 rounded-full font-bold hover:bg-red-500 dark:hover:bg-red-300"
+                  >
                     Add to Cart
                   </button>
                 </div>
                 <div className="w-1/2 px-2">
-                  <a href="/cart"><button className="md:w-[200px] w-[150px] bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
-                    Go to Cart
-                  </button></a>
+                  <a href="/cart">
+                    <button className="md:w-[200px] w-[150px] bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
+                      Go to Cart
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -100,18 +108,21 @@ const ProductDetails = () => {
                 {product.title}
               </h2>
               <div className="flex gap-2 items-center my-4">
-            <img src={star_icon} alt="" />
-            <img src={star_icon} alt="" />
-            <img src={star_icon} alt="" />
-            <img src={star_icon} alt="" />
-            <img src={star_dull_icon} alt="" />
-         </div>
+                <img src={star_icon} alt="" />
+                <img src={star_icon} alt="" />
+                <img src={star_icon} alt="" />
+                <img src={star_icon} alt="" />
+                <img src={star_dull_icon} alt="" />
+              </div>
 
-         <div className='my-4'>
-            <p className='text-sm font-bold'>rate: ({product.rating.rate})</p>
-            <p className='text-sm font-bold'>count: {product.rating.count}</p>
-
-         </div>
+              <div className="my-4">
+                <p className="text-sm font-bold">
+                  rate: ({product.rating.rate})
+                </p>
+                <p className="text-sm font-bold">
+                  count: {product.rating.count}
+                </p>
+              </div>
               {/* <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
                 ante justo. Integer euismod libero id mauris malesuada
@@ -177,7 +188,7 @@ const ProductDetails = () => {
                 </p>
               </div>
 
-              <div className='mt-4'>
+              <div className="mt-4">
                 <p>Category: {product.category}</p>
                 <p>Tags: Modern, Latest</p>
               </div>
@@ -187,11 +198,11 @@ const ProductDetails = () => {
       </div>
 
       <div>
-        <h1 className='font-bold m-8 mt-16 text-lg'>Related Items</h1>
+        <h1 className="font-bold m-8 mt-16 text-lg">Related Items</h1>
         <RelatedProducts />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;
