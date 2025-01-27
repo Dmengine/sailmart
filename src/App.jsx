@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Cart from './pages/cart/Cart';
 import ProductList from './pages/productList/ProductList';
@@ -34,4 +34,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
