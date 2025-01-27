@@ -31,10 +31,10 @@ const Landing = () => {
         {/* Main Navigation */}
         <div className="hidden md:flex items-center gap-10">
           <ul className="flex item-center font-semibold gap-10">
-            <li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Home</li>
-            <li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Contact</li>
-            <li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">About</li>
-            <li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Signup</li>
+            <a href='/'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Home</li></a>
+            <a href='/contact'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Contact</li></a>
+            <a href='/about'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">About</li></a>
+            <a href='/signup'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Signup</li></a>
           </ul>
         </div>
 
@@ -63,10 +63,10 @@ const Landing = () => {
       {/* Dropdown Menu for Small Screens */}
       <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden bg-white drop-shadow-md p-4`}>
         <ul className="flex flex-col gap-4 font-semibold">
-          <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Home</li>
-          <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Contact</li>
-          <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">About</li>
-          <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Signup</li>
+        <a href='/'><li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Home</li></a>
+        <a href='/contact'><li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Contact</li></a>
+        <a href='/About'><li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">About</li></a>
+        <a href='/signup'><li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Signup</li></a>
         </ul>
         <div className="mt-4">
           <div className="flex items-center relative">

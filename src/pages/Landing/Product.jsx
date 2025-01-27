@@ -1,50 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Rectangle from "./images/Rectangle.png";
-import Product1 from "./images/Product1.png";
-import Product2 from "./images/Product2.png";
-import Product3 from "./images/Product3.png";
-import Product5 from "./images/Product5.png";
 
-const products = [
-  {
-    id: 1,
-    name: "HAVIT HV-G92 Gamepad",
-    href: "#",
-    price: "$120",
-    imageSrc: Product1,
-    imageAlt: "Product Image 1.",
-    rating: 4,
-  },
-  {
-    id: 2,
-    name: "AK-900 Wired Keyboard",
-    href: "#",
-    price: "$960",
-    imageSrc: Product2,
-    imageAlt: " Product Image 2.",
-    rating: 4.1,
-  },
-  {
-    id: 3,
-    name: "IPS LCD Gaming Monitor",
-    href: "#",
-    price: "$370",
-    imageSrc: Product3,
-    imageAlt: "Product Image 3.",
-    rating: 3,
-  },
-  {
-    id: 4,
-    name: "S-Series Comfort Chair ",
-    href: "#",
-    price: "$375",
-    imageSrc: Product5,
-    imageAlt: "Product Image 4.",
-    rating: 4,
-  },
-];
+
+
 
 const Product = () => {
+  const [products, setProduct] = useState([]);
+    // const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const fetchProducts = async () => {
+        try {
+          const response = await fetch("https://fakestoreapi.com/products?limit=4");
+          const data = await response.json();
+          setProduct(data)
+        }catch (error) {
+          console.error(error)} 
+        //   finally {
+        //   setLoading(false);
+        // }
+      };
+      fetchProducts();
+    }, []);
+
   return (
      <div className="container mx-auto ml-10 px-4">
       <div className="bg-white overflow-hidden mt-23">
@@ -66,12 +44,12 @@ const Product = () => {
             <div
               key={product.id}
               className="bg-white-100 border-none rounded-lg shadow-lg overflow-hidden transition transform hover:scale-105 hover:shadow-xl"
-            >
+            ><a href={`/productList/${product.id}`}>
               {/* Product Image */}
-              <div className="w-full p-10">
-                <img
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
+              <div className="w-full p-10 h-[250px]">
+                <img 
+                  src={product.image}
+                  alt={product.title}
                   className="w-full h-50 object-contain rounded-t-lg transition-transform duration-300 hover:scale-110"
                 />
               </div>
@@ -79,29 +57,29 @@ const Product = () => {
               {/* Product Info */}
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-gray-800">
-                  {product.name}
+                  {product.title.substring(0, 12)}
                 </h3>
-                <p className="text-sm text-gray-500">{product.price}</p>
+                <p className="text-3xl md:text-xl font-bold text-gray-900 dark:text-white">${product.price}</p>
                 <div className="flex items-center mt-2">
                   {/* Render stars for ratings */}
                   <div className="text-yellow-500 text-sm">
-                    {"★".repeat(Math.floor(product.rating))}
-                    {"☆".repeat(5 - Math.floor(product.rating))}
+                    {"★".repeat(Math.floor(product.rating.rate))}
+                    {"☆".repeat(5 - Math.floor(product.rating.rate))}
                   </div>
                   <p className="ml-2 text-sm text-gray-500">
-                    ({product.rating.toFixed(1)})
+                    ({product.rating.rate.toFixed(1)})
                   </p>
                 </div>
-              </div>
-            </div>
+                </div>
+               </a> </div>
           ))}
         </div>
       </div>
       {/* button */}
       <div className="flex items-center justify-center mt-5">
-        <button className="w-40 px-3 py-3 text-white bg-red-600 rounded-md shadow-md hover:bg-red-400 hover:text-grey-400  focus:outline-none focus:ring-1 focus:ring-red-600">
+        <a href="/ProductList"><button className="w-40 px-3 py-3 text-white bg-red-600 rounded-md shadow-md hover:bg-red-400 hover:text-grey-400  focus:outline-none focus:ring-1 focus:ring-red-600">
           View All Products
-        </button>
+        </button></a>
       </div>
 
       {/* hr */}
