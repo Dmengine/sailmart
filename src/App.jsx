@@ -10,19 +10,18 @@ import Categories from "./pages/Landing/Categories";
 
 const App = () => {
   return (
-    {
-      /*// <Router>
-    //   <nav className="flex flex-col">
-    //     <Link to="/about">About</Link>
-    //     <Link to="/">Product</Link>
-    //     <Link to="/cart">Cart</Link>
-    //   </nav>
-    //   <Routes>
-    //     <Route path="/" element={<ProductList />} />
-    //     <Route path="/cart" element={<Cart/>} />
-    //   </Routes>
-    // </Router>*/
-    },
+     <Router>
+       <nav className="flex flex-col">
+         <Link to="/about">About</Link>
+         <Link to="/">Product</Link>
+         <Link to="/cart">Cart</Link>
+       </nav>
+       <Routes>
+       <Route path="/" element={<ProductList />} />
+       <Route path="/cart" element={<Cart/>} />
+     </Routes>
+     </Router>
+    ,
     (
       <div className="App">
         <Landing />
