@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Cart from './pages/cart/Cart';
 import ProductList from './pages/productList/ProductList';
 import Contact from './pages/contact/Contact';
-
 import About from './pages/about/About';
 import ProductDetails from './pages/productDetails/ProductDetails';
 import CheckoutPage from './pages/checkout/Checkout';
@@ -18,7 +17,6 @@ const App = () => {
         <Link to="/">Product</Link>
         <Link to="/cart">Cart</Link>
         
-        <Link to="/about">About</Link>
       </nav>
       <Routes>
         <Route path="/" element={<ProductList />} />
