@@ -34,7 +34,7 @@ const Landing = () => {
             <a href='/'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Home</li></a>
             <a href='/contact'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Contact</li></a>
             <a href='/about'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">About</li></a>
-            <a href='/signup'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Signup</li></a>
+            <a href='/SignUp'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Signup</li></a>
           </ul>
         </div>
 
