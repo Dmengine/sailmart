@@ -1,18 +1,19 @@
 import React from "react";
-import about_img from "/src/assets/about_img.png";
-import services1 from "/src/assets/services1.png";
-import services2 from "/src/assets/services2.png";
-import services3 from "/src/assets/services3.png";
-import services4 from "/src/assets/services4.png";
-import services5 from "/src/assets/services5.png";
-import services6 from "/src/assets/services6.png";
-import services7 from "/src/assets/services7.png";
-import person1 from "/src/assets/person1.png";
-import person2 from "/src/assets/person2.png";
-import person3 from "/src/assets/person3.png";
-import twitter from "/src/assets/twitter.png";
-import instagram from "/src/assets/instagram.png";
-import linkedin from "/src/assets/linkedin.png";
+import about_img from "../../assets/about_img.png";
+import services1 from "../../assets/services1.png";
+import services2 from "../../assets/services2.png";
+import services3 from "../../assets/services3.png";
+import services4 from "../../assets/services4.png";
+import services5 from "../../assets/services5.png";
+import services6 from "../../assets/services6.png";
+import services7 from "../../assets/services7.png";
+import person1 from "../../assets/person1.png";
+import person2 from "../../assets/person2.png";
+import person3 from "../../assets/person3.png";
+import twitter from "../../assets/twitter.png";
+import instagram from "../../assets/instagram.png";
+import linkedin from "../../assets/linkedin.png";
+
 
 const About = () => {
   return (
