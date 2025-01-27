@@ -198,7 +198,6 @@ const ProductDetails = () => {
       </div>
 
       <div>
-        <h1 className="font-bold m-8 mt-16 text-lg">Related Items</h1>
         <RelatedProducts />
       </div>
     </div>

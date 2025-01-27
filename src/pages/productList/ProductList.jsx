@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Rectangle from './Rectangle.png'
+import SidebarCarousel from "../Landing/SidebarCarousel";
 
 const ProductList = () => {
   const [products, setProduct] = useState([]);
@@ -26,12 +28,22 @@ const ProductList = () => {
 
   return (
     <div>
-      <h1>Product Listing</h1>
+      <SidebarCarousel />
+      <div className="flex items-center gap-10 py-5 px-5 mx-auto">
+              <div className="today-container flex gap-10">
+                <div className="">
+                  <img src={Rectangle} alt="Today's deals banner" />
+                </div>
+                <div className="today-title font-bold text-red-600">
+                  <h2>All Products</h2>
+                </div>
+              </div>
+            </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 items-center justify-center px-4 m-auto">
       {products.map((product) => (
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm  h-full" key={product.id}> 
+        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm  h-full transition transform hover:scale-105 hover:shadow-xl" key={product.id}> 
               <img
-            className="p-8 rounded-t-lg h-[250px]"
+            className="p-8 rounded-t-lg h-[250px] transition-transform duration-300 hover:scale-110"
             src={product.image}
             alt={product.title}
           />

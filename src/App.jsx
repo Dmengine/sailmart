@@ -1,39 +1,50 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Cart from './pages/cart/Cart';
-import ProductList from './pages/productList/ProductList';
-import Contact from './pages/contact/Contact';
-
-import About from './pages/about/About';
-import ProductDetails from './pages/productDetails/ProductDetails';
-import CheckoutPage from './pages/checkout/Checkout';
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  BrowserRouter,
+} from "react-router-dom";
+import Cart from "./pages/cart/Cart";
+import ProductList from "./pages/productList/ProductList";
+import Contact from "./pages/contact/Contact";
+import About from "./pages/about/About";
+import ProductDetails from "./pages/productDetails/ProductDetails";
+import CheckoutPage from "./pages/checkout/Checkout";
+import Landing from "./pages/Landing/Landing";
+import SidebarCarousel from "./pages/Landing/SidebarCarousel";
+import Product from "./pages/Landing/Product";
+import Categories from "./pages/Landing/Categories";
+import Home from "./pages/home/Home";
 
 const App = () => {
   return (
-    <Router>
-      <nav className="flex flex-col">
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/">Product</Link>
-        <Link to="/cart">Cart</Link>
+<div>
+      <BrowserRouter>
+        <Landing />
+        {/* <Link to="/about">About</Link> */}
+        {/* <Link to="/contact">Contact</Link> */}
+        {/* <Link to="/">Product</Link> */}
+        {/* <Link to="/cart">Cart</Link> */}
         
-        <Link to="/about">About</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<ProductList />} />
-        <Route path="/productList/:id" element={<ProductDetails />} />
-        <Route path="/About" element={<About/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/contact" element={<Contact/>} />
 
-        <Route path='/checkout' element={<CheckoutPage />} />
-      </Routes>
-    </Router>
+        <Routes>
+        <Route path="/" element={<Home />} />
+          <Route path="/ProductList" element={<ProductList />} />
+          <Route path="/productList/:id" element={<ProductDetails />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
 
+          <Route path="/checkout" element={<CheckoutPage />} />
+        </Routes>
+      </BrowserRouter>
+      
+    </div>
     
-
-  )
-}
+    
+  );
+};
 
 export default App;
