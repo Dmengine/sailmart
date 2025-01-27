@@ -5,7 +5,7 @@ import star_icon from "/src/assets/star_icon.png";
 import star_dull_icon from "/src/assets/star_dull_icon.png";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import { Link } from "react-router";
-import Skeleton from "react-loading-skeleton";
+// import Skeleton from "react-loading-skeleton";
 
 const ProductDetails = () => {
   const { addToCart } = useCart();
