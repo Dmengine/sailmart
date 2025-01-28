@@ -31,9 +31,10 @@ const ProductDetails = () => {
 
   if (loading) {
     return (
-      <div className="col-md-3">
-        <Skeleton height={350} />
-      </div>
+      <p>Loading</p>
+      // <div className="col-md-3">
+      //   <Skeleton height={350} />
+      // </div>
     );
   }
 

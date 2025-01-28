@@ -3,43 +3,40 @@ import DropDown1 from "./images/DropDown1.png";
 import Line from "./images/Line.png";
 import Pc1 from "./images/Pc1.png";
 import Pc2 from "./images/Pc2.png";
-import Pc3 from "./images/Pc3.png";
-import Pc4 from "./images/Pc4.png";
-import Pc5 from "./images/Pc5.png";
+import Pc6 from "./images/pc6.png";
+import Pc8 from "./images/Pc8.png";
+import Pc0 from "./images/Pc0.png";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const SidebarCarousel = () => {
-  const images = [Pc1, Pc2, Pc3, Pc4, Pc5]; 
+  const images = [Pc1, Pc2, Pc6, Pc8, Pc0];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  
   const prevSlide = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
 
-
   useEffect(() => {
-    const slideInterval = setInterval(nextSlide, 3000); 
-    return () => clearInterval(slideInterval); 
+    const slideInterval = setInterval(nextSlide, 3000);
+    return () => clearInterval(slideInterval);
   }, []);
 
   return (
     <div>
-      <div className="sidebar ml-30 mt-5 relative">
+      <div className="sidebar mx-auto mt-5 relative">
         {/* Categories Section */}
         <div>
-          <div>
-            <div className="text-red-600 font-bold">
+          <div> 
+            <div className="hidden md:block text-red-600 font-bold ml-19">
               <h2>CATEGORIES</h2>
             </div>
-            <div className="flex items-center gap-5 py-2 px-2">
+            <div className="flex flex-col-reverse md:flex-row items-start md:item-center justify-evenly py-2 px-2">
               <ul>
                 <li className="flex gap-20 py-1.5">
                   <a href="#">Women’s Fashion</a>
@@ -71,13 +68,18 @@ const SidebarCarousel = () => {
                   <a href="#">Health & Beauty</a>
                 </li>
               </ul>
-              <div>
+
+              <div className="md:hidden text-red-600 font-bold text-left">
+              <h2>CATEGORIES</h2>
+            </div>
+
+              <div className="hidden lg:block">
                 <img src={Line} alt="Line Divider" />
               </div>
 
               {/* Carousel Section */}
-              <div className="w-3/4 relative shadow-lg overflow-hidden">
-                <div className="relative h-64 overflow-hidden">
+              <div className="w-3/3 md:w-3/6 relative overflow-hidden bg-transparent">
+                <div className="relative aspect-video overflow-hidden">
                   {images.map((image, index) => (
                     <div
                       key={index}
@@ -95,7 +97,8 @@ const SidebarCarousel = () => {
                       <img
                         src={image}
                         alt={`Slide ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
+                        style={{ width: "100%", height: "100%" }}
                       />
                     </div>
                   ))}
@@ -116,7 +119,7 @@ const SidebarCarousel = () => {
                 </button>
 
                 {/* Indicators */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+                <div className="absolute bottom-4 md:bottom-2 left-0 right-0 flex justify-center">
                   {images.map((_, index) => (
                     <div
                       key={index}
