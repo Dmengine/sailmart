@@ -23,27 +23,27 @@ const Landing = () => {
   return (
     <div>
       {/* Top Banner */}
-      <div className="w-screen h-[30px] bg-black flex justify-evenly items-center">
+      <div className="w-full h-[30px] bg-black flex justify-evenly items-center px-4">
         <div className="text-white text-sm">
           <h1>
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%
           </h1>
         </div>
-        <div className="text-white flex items-center gap-10">
+        <div className="text-white flex items-center gap-4 md:gap-10">
           <p>English</p>
           <img src={DropDown} alt="dropdown.png" className="w-5" />
         </div>
       </div>
 
       {/* Navigation Bar */}
-      <div className="w-screen h-[50px] bg-white drop-shadow-md flex items-center justify-evenly">
+      <div className="w-full h-[50px] bg-white drop-shadow-md flex items-center justify-evenly px-4">
         <div className="font-bold text-red-600">
           <h1>SAIL MART</h1>
         </div>
 
         {/* Main Navigation */}
         <div className="hidden md:flex items-center gap-10">
-          <ul className="flex item-center font-semibold gap-10">
+          <ul className="flex item-center font-semibold gap-4 md:gap-10">
             <a href="/">
               <li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">
                 Home
@@ -68,12 +68,12 @@ const Landing = () => {
         </div>
 
         {/* Search Input */}
-        <div className="hidden md:flex items-center relative">
+        <div className="hidden md:flex items-center relative w-full max-w-[300px]">
           <BsSearch className="absolute left-3" size={15} />
           <input
             type="text"
             placeholder="What are you looking for?"
-            className="w-60 p-1 pl-8 rounded-sm border border-red-400 focus:outline-red-600"
+            className="w-full max-w-[240px] p-1 pl-8 rounded-sm border border-red-400 focus:outline-red-600"
           />
         </div>
 
@@ -107,7 +107,7 @@ const Landing = () => {
       <div
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } md:hidden bg-white drop-shadow-md p-4`}
+        } md:hidden bg-white drop-shadow-md p-4 max-w-full px-4`}
       >
         <ul className="flex flex-col gap-4 font-semibold">
           <a href="/">
