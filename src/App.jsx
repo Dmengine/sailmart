@@ -17,12 +17,17 @@ import SidebarCarousel from "./pages/Landing/SidebarCarousel";
 import Product from "./pages/Landing/Product";
 import Categories from "./pages/Landing/Categories";
 import Home from "./pages/home/Home";
+import WomenCat from "./pages/ProductCat/WomenCat";
+import MenCat from "./pages/ProductCat/MenCat";
+import JeweleryCat from "./pages/ProductCat/JeweleryCat";
+import ElectroncsCat from "./pages/ProductCat/ElectronicsCat";
 
 const App = () => {
   return (
 <div>
       <BrowserRouter>
         <Landing />
+        
         {/* <Link to="/about">About</Link> */}
         {/* <Link to="/contact">Contact</Link> */}
         {/* <Link to="/">Product</Link> */}
@@ -36,6 +41,10 @@ const App = () => {
           <Route path="/About" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/WomenCat" element={<WomenCat />} />
+          <Route path="/MenCat" element={<MenCat />} />
+          <Route path="/JeweleryCat" element={<JeweleryCat />} />
+          <Route path="/ElectronicsCat" element={<ElectroncsCat />} />
 
           <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
