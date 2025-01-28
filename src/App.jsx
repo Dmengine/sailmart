@@ -21,10 +21,12 @@ import WomenCat from "./pages/ProductCat/WomenCat";
 import MenCat from "./pages/ProductCat/MenCat";
 import JeweleryCat from "./pages/ProductCat/JeweleryCat";
 import ElectroncsCat from "./pages/ProductCat/ElectronicsCat";
+import SignUp from "./pages/login-signup/SignUp";
+import Login from "./pages/login-signup/Login";
 
 const App = () => {
   return (
-<div>
+    <div>
       <BrowserRouter>
         <Landing />
         
@@ -32,10 +34,9 @@ const App = () => {
         {/* <Link to="/contact">Contact</Link> */}
         {/* <Link to="/">Product</Link> */}
         {/* <Link to="/cart">Cart</Link> */}
-        
 
         <Routes>
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/ProductList" element={<ProductList />} />
           <Route path="/productList/:id" element={<ProductDetails />} />
           <Route path="/About" element={<About />} />
@@ -45,14 +46,13 @@ const App = () => {
           <Route path="/MenCat" element={<MenCat />} />
           <Route path="/JeweleryCat" element={<JeweleryCat />} />
           <Route path="/ElectronicsCat" element={<ElectroncsCat />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Login" element={<Login />} />
 
           <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
-      
     </div>
-    
-    
   );
 };
 
