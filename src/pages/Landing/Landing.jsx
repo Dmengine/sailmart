@@ -23,7 +23,7 @@ const Landing = () => {
   return (
     <div>
       {/* Top Banner */}
-      <div className="w-full h-[30px] bg-black flex justify-evenly items-center px-4">
+      <div className="w-full bg-black flex flex-col md:flex-row justify-center md:justify-evenly items-center text-center py-2">
         <div className="text-white text-sm">
           <h1>
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%
