@@ -1,20 +1,33 @@
 import React, { useState } from "react";
 import DropDown from "./images/DropDown.png";
-import { BsSearch, BsHeart, BsCart3, BsMenuButtonWideFill } from "react-icons/bs";
+import {
+  BsSearch,
+  BsHeart,
+  BsCart3,
+  BsMenuButtonWideFill,
+  BsMinecartLoaded,
+} from "react-icons/bs";
+import { useCart } from "../../context/cartContext";
 
 const Landing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartCount, isCartOpen, setIsCartOpen } = useCart();
+  // const { cartCount,  } = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
+
+  const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
   return (
     <div>
       {/* Top Banner */}
       <div className="w-full bg-black flex flex-col md:flex-row justify-center items-center text-center py-2  md:justify-evenly">
         <div className="text-white text-sm">
-          <h1>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%</h1>
+          <h1>
+            Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%
+          </h1>
         </div>
         <div className="text-white flex items-center gap-2">
           <p>English</p>
@@ -30,7 +43,7 @@ const Landing = () => {
 
         {/* Main Navigation */}
         <div className="hidden md:flex items-center gap-10">
-          <ul className="flex item-center font-semibold gap-4 md:gap-10">
+          <ul className="flex item-center font-semibold gap-10">
             <a href='/'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Home</li></a>
             <a href='/contact'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Contact</li></a>
             <a href='/about'><li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">About</li></a>
@@ -49,24 +62,54 @@ const Landing = () => {
         </div>
 
         {/* Heart and Cart Icons */}
-        <div className=" flex items-center gap-10">
+        <div className="relative flex items-center gap-10 cursor-pointer">
           <BsHeart size={30} />
-          <BsCart3 size={30} />
+          <BsMinecartLoaded size={30} onClick={toggleIsCartOpen} />
+          <span
+            style={{
+              position: "absolute",
+              top: 3,
+              right: 10,
+              fontSize: "14px",
+            }}
+          >
+            {cartCount}
+          </span>
         </div>
 
         {/* Menu Icon for Small Screens */}
         <div className="md:hidden">
-          <BsMenuButtonWideFill size={30} className="cursor-pointer" onClick={toggleMenu} />
+          <BsMenuButtonWideFill
+            size={30}
+            className="cursor-pointer"
+            onClick={toggleMenu}
+          />
         </div>
       </div>
 
       {/* Dropdown Menu for Small Screens */}
-      <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden bg-white drop-shadow-md p-4 max-w-full px-4`}>
+      <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden bg-white drop-shadow-md p-4`}>
         <ul className="flex flex-col gap-4 font-semibold">
-        <a href='/'><li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Home</li></a>
-        <a href='/contact'><li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Contact</li></a>
-        <a href='/About'><li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">About</li></a>
-        <a href='/signup'><li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">Signup</li></a>
+          <a href="/">
+            <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">
+              Home
+            </li>
+          </a>
+          <a href="/contact">
+            <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">
+              Contact
+            </li>
+          </a>
+          <a href="/About">
+            <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">
+              About
+            </li>
+          </a>
+          <a href="/signup">
+            <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">
+              Signup
+            </li>
+          </a>
         </ul>
         <div className="mt-4">
           <div className="flex items-center relative">

@@ -17,33 +17,33 @@ import SidebarCarousel from "./pages/Landing/SidebarCarousel";
 import Product from "./pages/Landing/Product";
 import Categories from "./pages/Landing/Categories";
 import Home from "./pages/home/Home";
+import SignUp from "./pages/login-signup/SignUp";
+import Login from "./pages/login-signup/Login";
 
 const App = () => {
   return (
-<div>
+    <div>
       <BrowserRouter>
         <Landing />
         {/* <Link to="/about">About</Link> */}
         {/* <Link to="/contact">Contact</Link> */}
         {/* <Link to="/">Product</Link> */}
         {/* <Link to="/cart">Cart</Link> */}
-        
 
         <Routes>
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/ProductList" element={<ProductList />} />
           <Route path="/productList/:id" element={<ProductDetails />} />
           <Route path="/About" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Login" element={<Login />} />
 
           <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
-      
     </div>
-    
-    
   );
 };
 
