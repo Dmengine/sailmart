@@ -5,7 +5,6 @@ import star_icon from "/src/assets/star_icon.png";
 import star_dull_icon from "/src/assets/star_dull_icon.png";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import { Link } from "react-router";
-// import Skeleton from "react-loading-skeleton";
 
 const ProductDetails = () => {
   const { addToCart } = useCart();
@@ -31,21 +30,9 @@ const ProductDetails = () => {
 
   if (loading) {
     return (
-      <div className="col-md-3">
-        <Skeleton height={350} />
-      </div>
+      <p>Loading....</p>
     );
   }
-
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     setLoading(true)
-  //     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-  //     setProduct(await response.json());
-  //     setLoading(false)
-  //   }
-  //   fetchProducts();
-  // }, []);
 
   return (
     <div>
@@ -123,11 +110,6 @@ const ProductDetails = () => {
                   count: {product.rating.count}
                 </p>
               </div>
-              {/* <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
-                ante justo. Integer euismod libero id mauris malesuada
-                tincidunt.
-              </p> */}
               <div className="flex mb-4">
                 <div className="mr-4">
                   <span className="font-bold text-gray-700 dark:text-gray-300">

@@ -8,6 +8,7 @@ import {
   BsMinecartLoaded,
 } from "react-icons/bs";
 import { useCart } from "../../context/cartContext";
+import { Link } from "react-router";
 
 const Landing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,7 +81,7 @@ const Landing = () => {
         {/* Heart and Cart Icons */}
         <div className="relative flex items-center gap-10 cursor-pointer">
           <BsHeart size={30} />
-          <BsMinecartLoaded size={30} onClick={toggleIsCartOpen} />
+          <Link to='/cart'><BsMinecartLoaded size={30} onClick={toggleIsCartOpen} />
           <span
             style={{
               position: "absolute",
@@ -90,7 +91,7 @@ const Landing = () => {
             }}
           >
             {cartCount}
-          </span>
+          </span></Link>
         </div>
 
         {/* Menu Icon for Small Screens */}
