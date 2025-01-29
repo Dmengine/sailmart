@@ -7,6 +7,7 @@ import {
   BsMenuButtonWideFill,
   BsMinecartLoaded,
 } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
 import { useCart } from "../../context/cartContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router";
@@ -26,9 +27,9 @@ const Landing = () => {
   useEffect(() => {
     const token = localStorage.getItem("userToken");
     if (token) {
-      setUserLoggedin(true); 
+      setUserLoggedin(true);
     } else {
-      setUserLoggedin(false); 
+      setUserLoggedin(false);
     }
   }, []);
 
@@ -56,7 +57,9 @@ const Landing = () => {
       {/* Navigation Bar */}
       <div className="w-full h-[50px] bg-white drop-shadow-md flex items-center justify-evenly px-4">
         <div className="font-bold text-red-600">
-          <h1>SAIL MART</h1>
+          <Link to="/">
+            <h1>SAIL MART</h1>
+          </Link>
         </div>
 
         {/* Main Navigation */}
@@ -102,17 +105,24 @@ const Landing = () => {
         {/* Heart and Cart Icons */}
         <div className="relative flex items-center gap-10 cursor-pointer">
           <BsHeart size={30} />
-          <Link to='/cart'><BsMinecartLoaded size={30} onClick={toggleIsCartOpen} />
-          <span
-            style={{
-              position: "absolute",
-              top: 3,
-              right: 10,
-              fontSize: "14px",
-            }}
-          >
-            {cartCount}
-          </span></Link>
+          <Link to="/cart">
+            <BsMinecartLoaded size={30} onClick={toggleIsCartOpen} />
+            <span
+              style={{
+                position: "absolute",
+                top: 3,
+                right: 10,
+                fontSize: "14px",
+              }}
+            >
+              {cartCount}
+            </span>
+          </Link>
+        </div>
+        <div>
+          <Link to="/profile">
+            <CgProfile size={30} className="cursor-pointer" />
+          </Link>
         </div>
 
         {/* Menu Icon for Small Screens */}

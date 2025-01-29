@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { useCart } from "../../context/cartContext";
 
 const CheckoutPage = () => {
-  const { cartItems, calculateTotal, removeFromCart, addToCart } = useCart();
+  const {
+    cartItems,
+    calculateTotal,
+    removeFromCart,
+    addToCart,
+    resetCartCount,
+  } = useCart();
   const [shippingDetails, setShippingDetails] = useState({
     name: "",
     email: "",
@@ -42,8 +48,8 @@ const CheckoutPage = () => {
 
   return (
     <div
-        className="container mx-auto p-4 sm:p-6 lg:p-10"
-        style={{ backgroundColor: "#F4F4F4" }}
+      className="container mx-auto p-4 sm:p-6 lg:p-10"
+      style={{ backgroundColor: "#F4F4F4" }}
     >
       <h1 className="text-2xl sm:text-3xl font-bold mb-5 text-center">
         Checkout Page
@@ -51,9 +57,7 @@ const CheckoutPage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Order Summary */}
-        <div
-          className="p-5 rounded-lg shadow-md"
-        >
+        <div className="p-5 rounded-lg shadow-md">
           <h2 className="text-xl sm:text-2xl font-semibold mb-4">
             Order Summary
           </h2>
@@ -108,9 +112,7 @@ const CheckoutPage = () => {
         </div>
 
         {/* Shipping Details */}
-        <div
-          className="p-5 rounded-lg shadow-md"
-        >
+        <div className="p-5 rounded-lg shadow-md">
           <h2 className="text-xl sm:text-2xl font-semibold mb-4">
             Shipping Details
           </h2>
@@ -166,7 +168,10 @@ const CheckoutPage = () => {
       {/* Place Order Button */}
       <div className="text-center mt-8">
         <button
-          onClick={handlePlaceOrder}
+          onClick={() => {
+            resetCartCount();
+            handlePlaceOrder();
+          }}
           className="cursor-pointer bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 w-full sm:w-auto"
         >
           Place Order
