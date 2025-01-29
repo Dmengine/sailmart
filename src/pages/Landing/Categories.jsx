@@ -8,8 +8,10 @@ import HeadPhone from "./images/HeadPhone.png";
 import Gamepad from "./images/Gamepad.png";
 import RightArrow from './images/RightArrow.png'
 import LeftArrow from './images/LeftArrow.png'
+import { Link } from "react-router";
 
 const Categories = () => {
+  
   return (
     <div className="container mx-auto mt-10 px-4">
       <div className="flex items-center gap-10 py-5 px-5 mx-auto">
@@ -36,44 +38,36 @@ const Categories = () => {
       {/* CATEGORIES  GRID*/}
 
       <div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-10 px-10 py-10 mx-auto">
+        <div className="flex gap-10 px-10 py-10 justify-center">
+        <div className="flex flex-col md:flex-row gap-10 px-10 py-10 mx-auto">
           <div>
-            <div className="border p-10 flex flex-col items-center justify-center h-40 hover:border-red-600 hover:text-red-600">
+          <Link to='/MenCat'><button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600">
               <img src={CellPhone} alt="" />
-              <p>Phones</p>
-            </div>
+              <p>Men's Cloth</p>
+            </button></Link>
           </div>
           <div>
-            <div className="border p-10 flex flex-col items-center justify-center h-40 hover:border-red-600 hover:text-red-600">
+            <Link to='/WomenCat'><button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600">
               <img src={Computer} alt="" />
-              <p>Computers</p>
-            </div>
+              <p>Women's Cloth</p>
+            </button></Link>
           </div>
           <div>
-            <div className="border p-10 flex flex-col items-center justify-center h-40 hover:border-red-600 hover:text-red-600">
+          <Link to='/ElectronicsCat'><button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600">
               <img src={SmartWatch} alt="" />
-              <p>Smartwatch</p>
-            </div>
+              <p>Electonics</p>
+            </button></Link>
           </div>
           <div>
-            <div className="p-10 flex flex-col items-center justify-center h-40 bg-red-500 text-white hover:bg-black">
-              <img src={Camera} alt="" />
-              <p>Camera</p>
-            </div>
-          </div>
-          <div>
-            <div className="border p-10 flex flex-col items-center justify-center h-40 hover:border-red-600 hover:text-red-600">
+          <Link to='/JeweleryCat'><button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500">
+            <div className="p-10 flex flex-col items-center justify-center h-40 hover:border-red-600 hover:text-red-600">
               <img src={HeadPhone} alt="" />
-              <p>Headphones</p>
+              <p>Jewelries</p>
             </div>
-          </div>
-          <div>
-            <div className="border p-10 flex flex-col items-center justify-center h-40 hover:border-red-600 hover:text-red-600">
-              <img src={Gamepad} alt="" />
-              <p>Games</p>
-            </div>
+            </button></Link>
           </div>
         </div>
+      </div>
       </div>
 
       {/* hr */}
