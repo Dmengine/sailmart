@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DropDown from "./images/DropDown.png";
 import {
   BsSearch,
@@ -8,18 +8,35 @@ import {
   BsMinecartLoaded,
 } from "react-icons/bs";
 import { useCart } from "../../context/cartContext";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router";
 
 const Landing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartCount, isCartOpen, setIsCartOpen } = useCart();
-  // const { cartCount,  } = useCart();
+  const navigate = useNavigate();
+  const [userLoggedin, setUserLoggedin] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
+
+  useEffect(() => {
+    const token = localStorage.getItem("userToken");
+    if (token) {
+      setUserLoggedin(true); 
+    } else {
+      setUserLoggedin(false); 
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userToken");
+    setUserLoggedin(false);
+    navigate("/Login");
+  };
 
   return (
     <div>
@@ -62,7 +79,11 @@ const Landing = () => {
             </a>
             <a href="/SignUp">
               <li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">
-                Signup
+                {userLoggedin ? (
+                  <button onClick={handleLogout}>Logout</button>
+                ) : (
+                  "SignUp"
+                )}
               </li>
             </a>
           </ul>
@@ -128,7 +149,11 @@ const Landing = () => {
           </a>
           <a href="/signup">
             <li className="p-2 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">
-              Signup
+              {userLoggedin ? (
+                <button onClick={handleLogout}>Logout</button>
+              ) : (
+                "SignUp"
+              )}
             </li>
           </a>
         </ul>
