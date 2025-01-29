@@ -62,6 +62,13 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Function to reset cart count when clicking the cart icon
+  const resetCartCount = () => {
+    setCartItems([]);
+    setCartCount(0);
+    localStorage.removeItem("cartItems");
+  };
+
   // Remove item from cart
   const removeFromCart = (id) => {
     setCartItems((prevItems) => {
@@ -83,6 +90,7 @@ export const CartProvider = ({ children }) => {
     removeFromCart,
     calculateTotal,
     cartCount,
+    resetCartCount,
   };
 
   return <cartContext.Provider value={value}>{children}</cartContext.Provider>;

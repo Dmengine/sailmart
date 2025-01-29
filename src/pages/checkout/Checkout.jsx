@@ -4,7 +4,13 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const CheckoutPage = () => {
-  const { cartItems, calculateTotal, removeFromCart, addToCart } = useCart();
+  const {
+    cartItems,
+    calculateTotal,
+    removeFromCart,
+    addToCart,
+    resetCartCount,
+  } = useCart();
   const [shippingDetails, setShippingDetails] = useState({
     name: "",
     email: "",
@@ -51,8 +57,8 @@ const CheckoutPage = () => {
 
   return (
     <div
-        className="container mx-auto p-4 sm:p-6 lg:p-10"
-        style={{ backgroundColor: "#F4F4F4" }}
+      className="container mx-auto p-4 sm:p-6 lg:p-10"
+      style={{ backgroundColor: "#F4F4F4" }}
     >
       <h1 className="text-2xl sm:text-3xl font-bold mb-5 text-center">
         Checkout Page
@@ -176,16 +182,12 @@ const CheckoutPage = () => {
 
       {/* Place Order Button */}
       <div className="text-center mt-8">
-        {loading ? (
-          <Skeleton height={50} width={200} />
-        ) : (
-          <button
-            onClick={handlePlaceOrder}
-            className="cursor-pointer bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 w-full sm:w-auto"
-          >
-            Place Order
-          </button>
-        )}
+        <button
+          onClick={handlePlaceOrder}
+          className="cursor-pointer bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 w-full sm:w-auto"
+        >
+          Place Order
+        </button>
       </div>
     </div>
   );

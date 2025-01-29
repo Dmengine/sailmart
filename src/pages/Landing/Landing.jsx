@@ -7,6 +7,7 @@ import {
   BsMenuButtonWideFill,
   BsMinecartLoaded,
 } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
 import { useCart } from "../../context/cartContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router";
@@ -82,7 +83,9 @@ const Landing = () => {
           {loading ? (
             <Skeleton height={30} width={100} />
           ) : (
+            <Link to="/">
             <h1>SAIL MART</h1>
+          </Link>
           )}
         </div>
 
@@ -166,6 +169,11 @@ const Landing = () => {
                   {cartCount}
                 </span>
               </Link>
+              <div>
+                <Link to="/profile">
+                  <CgProfile size={30} className="cursor-pointer" />
+                </Link>
+              </div>
             </>
           )}
         </div>

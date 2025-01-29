@@ -22,7 +22,9 @@ export function AuthProvider({ children }) {
   function initializeUser(user) {
     if (user) {
       setCurrentUser(user);
-      setIsEmailUser(user.providerData.some((provider) => provider.providerId === "password"));
+      setIsEmailUser(
+        user.providerData.some((provider) => provider.providerId === "password")
+      );
       setUserLoggedIn(true);
     } else {
       setCurrentUser(null);
@@ -33,7 +35,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={{ userLoggedIn, isEmailUser, currentUser }}>
-      {!loading && children} 
+      {!loading && children}
     </AuthContext.Provider>
   );
 }

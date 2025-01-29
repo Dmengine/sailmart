@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../../context/cartContext';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +27,7 @@ const Cart = () => {
   };
 
   const handleProceedToCheckout = () => {
-    navigate('/checkout');
+    navigate("/checkout");
   };
 
   return (
@@ -67,7 +68,7 @@ const Cart = () => {
                 key={item.id}
                 className="flex flex-col md:flex-row items-center justify-between gap-5 mb-5 p-4 rounded-lg"
                 style={{
-                  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 {/* Product Image and Title */}
@@ -80,10 +81,10 @@ const Cart = () => {
                   <span
                     className="text-lg font-semibold md:text-base"
                     style={{
-                      maxWidth: '200px',
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
+                      maxWidth: "200px",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
                     }}
                     title={item.title}
                   >
@@ -103,7 +104,10 @@ const Cart = () => {
                     value={item.quantity}
                     min="1"
                     onChange={(e) =>
-                      handleQuantityChange(item.id, parseInt(e.target.value) || 0)
+                      handleQuantityChange(
+                        item.id,
+                        parseInt(e.target.value) || 0
+                      )
                     }
                     className="w-16 border text-center text-lg font-medium md:w-20"
                   />
