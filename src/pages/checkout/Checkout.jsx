@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from "../../context/cartContext";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const CheckoutPage = () => {
   const {
@@ -15,6 +17,13 @@ const CheckoutPage = () => {
     address: "",
     phone: "",
   });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -61,7 +70,9 @@ const CheckoutPage = () => {
           <h2 className="text-xl sm:text-2xl font-semibold mb-4">
             Order Summary
           </h2>
-          {cartItems.length === 0 ? (
+          {loading ? (
+            <Skeleton count={5} height={30} />
+          ) : cartItems.length === 0 ? (
             <p className="text-center text-lg">Your cart is empty!</p>
           ) : (
             <div>
@@ -116,62 +127,63 @@ const CheckoutPage = () => {
           <h2 className="text-xl sm:text-2xl font-semibold mb-4">
             Shipping Details
           </h2>
-          <form className="grid grid-cols-1 gap-4">
-            <div>
-              <label className="block mb-1 font-medium">Name</label>
-              <input
-                type="text"
-                name="name"
-                value={shippingDetails.name}
-                onChange={handleInputChange}
-                placeholder="Enter your name"
-                className="w-full border rounded-lg p-2 text-sm sm:text-base"
-              />
-            </div>
-            <div>
-              <label className="block mb-1 font-medium">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={shippingDetails.email}
-                onChange={handleInputChange}
-                placeholder="Enter your email"
-                className="w-full border rounded-lg p-2 text-sm sm:text-base"
-              />
-            </div>
-            <div>
-              <label className="block mb-1 font-medium">Address</label>
-              <textarea
-                name="address"
-                value={shippingDetails.address}
-                onChange={handleInputChange}
-                placeholder="Enter your address"
-                className="w-full border rounded-lg p-2 text-sm sm:text-base"
-                rows="3"
-              ></textarea>
-            </div>
-            <div>
-              <label className="block mb-1 font-medium">Phone</label>
-              <input
-                type="text"
-                name="phone"
-                value={shippingDetails.phone}
-                onChange={handleInputChange}
-                placeholder="Enter your phone number"
-                className="w-full border rounded-lg p-2 text-sm sm:text-base"
-              />
-            </div>
-          </form>
+          {loading ? (
+            <Skeleton count={5} height={30} />
+          ) : (
+            <form className="grid grid-cols-1 gap-4">
+              <div>
+                <label className="block mb-1 font-medium">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={shippingDetails.name}
+                  onChange={handleInputChange}
+                  placeholder="Enter your name"
+                  className="w-full border rounded-lg p-2 text-sm sm:text-base"
+                />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={shippingDetails.email}
+                  onChange={handleInputChange}
+                  placeholder="Enter your email"
+                  className="w-full border rounded-lg p-2 text-sm sm:text-base"
+                />
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">Address</label>
+                <textarea
+                  name="address"
+                  value={shippingDetails.address}
+                  onChange={handleInputChange}
+                  placeholder="Enter your address"
+                  className="w-full border rounded-lg p-2 text-sm sm:text-base"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div>
+                <label className="block mb-1 font-medium">Phone</label>
+                <input
+                  type="text"
+                  name="phone"
+                  value={shippingDetails.phone}
+                  onChange={handleInputChange}
+                  placeholder="Enter your phone number"
+                  className="w-full border rounded-lg p-2 text-sm sm:text-base"
+                />
+              </div>
+            </form>
+          )}
         </div>
       </div>
 
       {/* Place Order Button */}
       <div className="text-center mt-8">
         <button
-          onClick={() => {
-            resetCartCount();
-            handlePlaceOrder();
-          }}
+          onClick={handlePlaceOrder}
           className="cursor-pointer bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 w-full sm:w-auto"
         >
           Place Order
