@@ -19,6 +19,8 @@ import Categories from "./pages/Landing/Categories";
 import Home from "./pages/home/Home";
 import SignUp from "./pages/login-signup/SignUp";
 import Login from "./pages/login-signup/Login";
+import Footer from "./pages/Landing/Footer";
+
 
 const App = () => {
   return (
@@ -43,6 +45,7 @@ const App = () => {
           <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 };

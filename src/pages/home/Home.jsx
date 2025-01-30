@@ -15,7 +15,6 @@ const Home = () => {
       <Categories />
       <Bestselling />
       <NewArrivals />
-      <Footer />
     </div>
   );
 };
