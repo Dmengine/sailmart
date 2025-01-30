@@ -1,8 +1,16 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
+import emailjs from '@emailjs/browser'
 import phoneImgUrl from "../../assets/phone-icon.png"
 import emailImgUrl from "../../assets/email-icon.png"
+import ContactModal from "./ContactModal"
 
 export default function Contact() {
+    const [status, setStatus] = useState({
+        mail: false,
+        modal: false
+    })
+
+    const formElement = useRef()
 
     const [ value, setValue ] = useState({
         name: "",
@@ -16,13 +24,28 @@ export default function Contact() {
         setValue({...value, [name]: value})
     }
 
-    function handleSubmit (e) {
+    function SendEmail (e) {
         e.preventDefault()
-        console.log("submitted")
-    }
 
+        setStatus({...status, modal: true})
+        emailjs.sendForm('service_mey8v6n', 'template_yie6xer', 
+            formElement.current, {
+            publicKey: 'nCehppSGIIFcj-4Iq',
+        })
+        .then(
+            () => {
+            console.log('SUCCESS!');
+            setStatus({...status, mail: true})
+            },
+            (error) => {setTimeout(setStatus({...status, mail: false}), 4000)
+            console.log('FAILED...', error.text);
+            }
+        )
+    }
+    const { mail, modal } = status
     return (
         <>
+            {modal && <ContactModal style={{backgroundColor: black, opacity: 0.7}} mail={mail} modal={modal} />}
             <h4 className="px-36 my-8 hidden sm:block"><span className="opacity-50" >Home /</span><span> Contact</span></h4>
             <main className="flex justify-center items-center sm:flex-row sm:mt-0 mt-16 px-4">
                 <div className="flex flex-col gap-y-4 sm:flex-row sm:gap-8 justify-center
@@ -65,7 +88,7 @@ export default function Contact() {
                             sm:hidden">
                             Send Us a Message
                         </h1>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={SendEmail} ref={formElement} >
                             <div className="grid grid-cols-3 grid-rows-5 gap-x-4 gap-y-6 relative">
                                 <input className="sm:col-span-1 sm:row-span-1 col-span-3 
                                     bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
