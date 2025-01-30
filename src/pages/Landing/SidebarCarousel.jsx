@@ -8,7 +8,7 @@ import Pc8 from "./images/Pc8.png";
 import Pc0 from "./images/Pc0.png";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Skeleton from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css';
+import "react-loading-skeleton/dist/skeleton.css";
 
 const SidebarCarousel = () => {
   const images = [Pc1, Pc2, Pc6, Pc8, Pc0];
@@ -68,11 +68,19 @@ const SidebarCarousel = () => {
                   <>
                     <li className="flex gap-20 py-1.5">
                       <a href="#">Women’s Fashion</a>
-                      <img src={DropDown1} alt="Dropdown Icon" />
+                      <img
+                        src={DropDown1}
+                        alt="Dropdown Icon"
+                        className="cursor-pointer"
+                      />
                     </li>
                     <li className="flex gap-25 py-1.5">
                       <a href="#">Men’s Fashion</a>
-                      <img src={DropDown1} alt="Dropdown Icon" />
+                      <img
+                        src={DropDown1}
+                        alt="Dropdown Icon"
+                        className="cursor-pointer"
+                      />
                     </li>
                     <li className="py-1.5">
                       <a href="#">Electronics</a>
@@ -155,13 +163,13 @@ const SidebarCarousel = () => {
                 ) : (
                   <>
                     <button
-                      className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-red-600 text-white p-2 rounded-full"
+                      className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-red-600 text-white p-2 rounded-full cursor-pointer"
                       onClick={prevSlide}
                     >
                       <AiOutlineLeft />
                     </button>
                     <button
-                      className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-red-600 text-white p-2 rounded-full"
+                      className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-red-600 text-white p-2 rounded-full cursor-pointer"
                       onClick={nextSlide}
                     >
                       <AiOutlineRight />
@@ -172,7 +180,12 @@ const SidebarCarousel = () => {
                 {/* Indicators */}
                 <div className="absolute bottom-4 md:bottom-2 left-0 right-0 flex justify-center">
                   {loading ? (
-                    <Skeleton height={10} width={10} circle={true} count={images.length} />
+                    <Skeleton
+                      height={10}
+                      width={10}
+                      circle={true}
+                      count={images.length}
+                    />
                   ) : (
                     images.map((_, index) => (
                       <div

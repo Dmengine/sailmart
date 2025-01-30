@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Rectangle from "./images/Rectangle.png";
 import Skeleton from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css';
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Product = () => {
   const [products, setProduct] = useState([]);
@@ -114,7 +114,7 @@ const Product = () => {
             <Skeleton height={50} width={200} />
           ) : (
             <a href="/ProductList">
-              <button className="w-40 px-3 py-3 text-white bg-red-600 rounded-md shadow-md hover:bg-red-400 hover:text-grey-400  focus:outline-none focus:ring-1 focus:ring-red-600">
+              <button className="w-40 px-3 py-3 text-white bg-red-600 rounded-md shadow-md hover:bg-red-400 hover:text-grey-400  focus:outline-none focus:ring-1 focus:ring-red-600 cursor-pointer">
                 View All Products
               </button>
             </a>

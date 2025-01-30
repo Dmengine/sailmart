@@ -164,14 +164,14 @@ const ProductDetails = () => {
                 <div className="w-1/2 px-2">
                   <button
                     onClick={() => addToCart(product)}
-                    className="w-full bg-red-800 dark:bg-red-600 text-white py-2 px-4 rounded-full font-bold hover:bg-red-500 dark:hover:bg-red-300"
+                    className="w-full bg-red-800 dark:bg-red-600 text-white py-2 px-4 rounded-full font-bold hover:bg-red-500 dark:hover:bg-red-300 cursor-pointer"
                   >
                     Add to Cart
                   </button>
                 </div>
                 <div className="w-1/2 px-2">
                   <a href="/cart">
-                    <button className="md:w-[200px] w-[150px] bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
+                    <button className="md:w-[200px] w-[150px] bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer">
                       Go to Cart
                     </button>
                   </a>
@@ -200,51 +200,39 @@ const ProductDetails = () => {
               </div>
               <div className="flex mb-4">
                 <div className="mr-4">
-                  <span className="font-bold text-gray-700">
-                    Price:
-                  </span>
-                  <span className="text-gray-600">
-                    ${product.price}
-                  </span>
+                  <span className="font-bold text-gray-700">Price:</span>
+                  <span className="text-gray-600">${product.price}</span>
                 </div>
                 <div>
-                  <span className="font-bold text-gray-700">
-                    Availability:
-                  </span>
-                  <span className="text-gray-600">
-                    In Stock
-                  </span>
+                  <span className="font-bold text-gray-700">Availability:</span>
+                  <span className="text-gray-600">In Stock</span>
                 </div>
               </div>
               <div className="mb-4">
-                <span className="font-bold text-gray-700 ">
-                  Select Color:
-                </span>
+                <span className="font-bold text-gray-700 ">Select Color:</span>
                 <div className="flex items-center mt-2">
-                  <button className="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2"></button>
-                  <button className="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
-                  <button className="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
-                  <button className="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"></button>
+                  <button className="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2 cursor-pointer"></button>
+                  <button className="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2 cursor-pointer"></button>
+                  <button className="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2 cursor-pointer"></button>
+                  <button className="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2 cursor-pointer"></button>
                 </div>
               </div>
               <div className="mb-4">
-                <span className="font-bold text-gray-700">
-                  Select Size:
-                </span>
+                <span className="font-bold text-gray-700">Select Size:</span>
                 <div className="flex items-center mt-2">
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
+                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
                     S
                   </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
+                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
                     M
                   </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
+                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
                     L
                   </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
+                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
                     XL
                   </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">
+                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
                     XXL
                   </button>
                 </div>
