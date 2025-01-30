@@ -5,14 +5,13 @@ import {
   BsHeart,
   BsCart3,
   BsMenuButtonWideFill,
-  BsMinecartLoaded,
 } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { useCart } from "../../context/cartContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router";
 import Skeleton from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css';
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Landing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -84,8 +83,8 @@ const Landing = () => {
             <Skeleton height={30} width={100} />
           ) : (
             <Link to="/">
-            <h1>SAIL MART</h1>
-          </Link>
+              <h1>SAIL MART</h1>
+            </Link>
           )}
         </div>
 
@@ -157,13 +156,19 @@ const Landing = () => {
             <>
               <BsHeart size={30} />
               <Link to="/cart">
-                <BsMinecartLoaded size={30} onClick={toggleIsCartOpen} />
+                <BsCart3 size={30} onClick={toggleIsCartOpen} />
                 <span
                   style={{
                     position: "absolute",
-                    top: 3,
-                    right: 10,
-                    fontSize: "14px",
+                    bottom: 15,
+                    left: 85,
+                    textAlign: "center",
+                    fontSize: "13px",
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "100%",
+                    background: "red",
+                    color: "white",
                   }}
                 >
                   {cartCount}
@@ -171,7 +176,7 @@ const Landing = () => {
               </Link>
               <div>
                 <Link to="/profile">
-                  <CgProfile size={30} className="cursor-pointer" />
+                  <CgProfile size={30} className="cursor-pointe text-red-600" />
                 </Link>
               </div>
             </>

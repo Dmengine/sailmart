@@ -43,6 +43,7 @@ const Login = () => {
       doSignInWithGoogle()
         .then(() => {
           navigate("/");
+          console.log(user);
         })
         .catch((err) => {
           setIsSignIngIn(false);
