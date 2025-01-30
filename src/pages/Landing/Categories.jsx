@@ -6,11 +6,11 @@ import SmartWatch from "./images/SmartWatch.png";
 import Camera from "./images/Camera.png";
 import HeadPhone from "./images/HeadPhone.png";
 import Gamepad from "./images/Gamepad.png";
-import RightArrow from './images/RightArrow.png'
-import LeftArrow from './images/LeftArrow.png'
+import RightArrow from "./images/RightArrow.png";
+import LeftArrow from "./images/LeftArrow.png";
 import { Link } from "react-router";
 import Skeleton from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css';
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Categories = () => {
   const [loading, setLoading] = useState(true);
@@ -59,8 +59,8 @@ const Categories = () => {
             </>
           ) : (
             <>
-              <img src={RightArrow} alt="" className="w-10" />
-              <img src={LeftArrow} alt="" className="w-10" />
+              <img src={RightArrow} alt="" className="w-10 cursor-pointer" />
+              <img src={LeftArrow} alt="" className="w-10 cursor-pointer" />
             </>
           )}
         </div>
@@ -74,7 +74,10 @@ const Categories = () => {
               Array(4)
                 .fill()
                 .map((_, index) => (
-                  <div key={index} className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600">
+                  <div
+                    key={index}
+                    className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600"
+                  >
                     <Skeleton height={50} width={50} />
                     <Skeleton height={20} width={100} />
                   </div>
@@ -82,32 +85,32 @@ const Categories = () => {
             ) : (
               <>
                 <div>
-                  <Link to='/MenCat'>
-                    <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600">
+                  <Link to="/MenCat">
+                    <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
                       <img src={CellPhone} alt="" />
                       <p>Men's Cloth</p>
                     </button>
                   </Link>
                 </div>
                 <div>
-                  <Link to='/WomenCat'>
-                    <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600">
+                  <Link to="/WomenCat">
+                    <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
                       <img src={Computer} alt="" />
                       <p>Women's Cloth</p>
                     </button>
                   </Link>
                 </div>
                 <div>
-                  <Link to='/ElectronicsCat'>
-                    <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600">
+                  <Link to="/ElectronicsCat">
+                    <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
                       <img src={SmartWatch} alt="" />
                       <p>Electronics</p>
                     </button>
                   </Link>
                 </div>
                 <div>
-                  <Link to='/JeweleryCat'>
-                    <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600">
+                  <Link to="/JeweleryCat">
+                    <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
                       <img src={HeadPhone} alt="" />
                       <p>Jewelries</p>
                     </button>
