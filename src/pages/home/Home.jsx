@@ -4,7 +4,6 @@ import Categories from "../Landing/Categories";
 import SidebarCarousel from "../Landing/SidebarCarousel";
 import Bestselling from "../Landing/Bestselling";
 import NewArrivals from "../Landing/NewArrivals";
-import Footer from "../Landing/Footer";
 
 
 const Home = () => {
