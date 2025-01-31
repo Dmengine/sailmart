@@ -1,5 +1,4 @@
-// import phoneImgUrl from "../../assets/phone-icon.png"
-// import emailImgUrl from "../../assets/email-icon.png"
+import React from 'react';
 
 export default function Contact() {
 
@@ -59,13 +58,13 @@ export default function Contact() {
                                 <input className="sm:col-span-1 sm:row-span-1 col-span-3 
                                     bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
                                     cursor-pointer outline-black" 
-                                    placeholder="Your Name" 
+                                    placeholder="Your Email" 
                                     id="name" name="name" type="text" required
                                 />
                                 <input className="sm:col-span-1 sm:row-span-1 col-span-3 
                                     bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
                                     cursor-pointer outline-black" 
-                                    placeholder="Your Name" 
+                                    placeholder="Your Password" 
                                     id="name" name="name" type="text" required
                                 />
                                 <textarea className="col-span-3 row-span-3 bg-gray-200 

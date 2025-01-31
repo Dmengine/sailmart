@@ -1,11 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import DropDown1 from "./images/DropDown1.png";
-// import Line from "./images/Line.png";
-// import Pc1 from "./images/Pc1.png";
-// import Pc2 from "./images/Pc2.png";
-// import Pc6 from "./images/pc6.png";
-// import Pc8 from "./images/Pc8.png";
-// import Pc0 from "./images/Pc0.png";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
