@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Rectangle from "./images/Rectangle.png";
-import CellPhone from "./images/CellPhone.png";
-import Computer from "./images/Computer.png";
-import SmartWatch from "./images/SmartWatch.png";
-import Camera from "./images/Camera.png";
-import HeadPhone from "./images/HeadPhone.png";
-import Gamepad from "./images/Gamepad.png";
-import RightArrow from "./images/RightArrow.png";
-import LeftArrow from "./images/LeftArrow.png";
+// import Rectangle from "./images/Rectangle.png";
+// import CellPhone from "./images/CellPhone.png";
+// import Computer from "./images/Computer.png";
+// import SmartWatch from "./images/SmartWatch.png";
+// import Camera from "./images/Camera.png";
+// import HeadPhone from "./images/HeadPhone.png";
+// import Gamepad from "./images/Gamepad.png";
+// import RightArrow from "./images/RightArrow.png";
+// import LeftArrow from "./images/LeftArrow.png";
 import { Link } from "react-router";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -30,7 +30,7 @@ const Categories = () => {
             {loading ? (
               <Skeleton height={100} width={200} />
             ) : (
-              <img src={Rectangle} alt="Today's.png" />
+              <img src="/Rectangle.png" alt="Today's.png" />
             )}
           </div>
           <div className="font-bold text-red-600">
@@ -59,8 +59,8 @@ const Categories = () => {
             </>
           ) : (
             <>
-              <img src={RightArrow} alt="" className="w-10 cursor-pointer" />
-              <img src={LeftArrow} alt="" className="w-10 cursor-pointer" />
+              <img src="/RightArrow.png" alt="" className="w-10 cursor-pointer" />
+              <img src="/LeftArrow.png" alt="" className="w-10 cursor-pointer" />
             </>
           )}
         </div>
@@ -87,7 +87,7 @@ const Categories = () => {
                 <div>
                   <Link to="/MenCat">
                     <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
-                      <img src={CellPhone} alt="" />
+                      <img src="/CellPhone.png" alt="" />
                       <p>Men's Cloth</p>
                     </button>
                   </Link>
@@ -95,7 +95,7 @@ const Categories = () => {
                 <div>
                   <Link to="/WomenCat">
                     <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
-                      <img src={Computer} alt="" />
+                      <img src="/Computer.png" alt="" />
                       <p>Women's Cloth</p>
                     </button>
                   </Link>
@@ -103,7 +103,7 @@ const Categories = () => {
                 <div>
                   <Link to="/ElectronicsCat">
                     <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
-                      <img src={SmartWatch} alt="" />
+                      <img src="/SmartWatch.png" alt="" />
                       <p>Electronics</p>
                     </button>
                   </Link>
@@ -111,7 +111,7 @@ const Categories = () => {
                 <div>
                   <Link to="/JeweleryCat">
                     <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
-                      <img src={HeadPhone} alt="" />
+                      <img src="/HeadPhone.png" alt="" />
                       <p>Jewelries</p>
                     </button>
                   </Link>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Rectangle from "./images/Rectangle.png";
-import Ps5slim from "./images/Ps5slim.png";
-import Attractivewoman from "./images/Attractivewoman.png";
-import Speaker from "./images/Speaker.png";
-import Perfume from "./images/Perfume.png";
+// import Rectangle from "./images/Rectangle.png";
+// import Ps5slim from "./images/Ps5slim.png";
+// import Attractivewoman from "./images/Attractivewoman.png";
+// import Speaker from "./images/Speaker.png";
+// import Perfume from "./images/Perfume.png";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -25,7 +25,7 @@ const NewArrivals = () => {
             {loading ? (
               <Skeleton height={100} width={200} />
             ) : (
-              <img src={Rectangle} alt="Today's.png" />
+              <img src="/Rectangle.png" alt="Today's.png" />
             )}
           </div>
           <div className="font-bold text-red-600">
@@ -45,7 +45,7 @@ const NewArrivals = () => {
             {loading ? (
               <Skeleton height={400} width="100%" />
             ) : (
-              <img src={Ps5slim} alt="" />
+              <img src="/Ps5slim.png" alt="" />
             )}
             <div className="absolute top-70 md:top-60 left-10 md:left-20 text-white">
               {loading ? (
@@ -71,7 +71,7 @@ const NewArrivals = () => {
             {loading ? (
               <Skeleton height={400} width="100%" />
             ) : (
-              <img src={Attractivewoman} alt="" />
+              <img src="/Attractivewoman.png" alt="" />
             )}
             <div className="absolute top-30 md:top-40 left-10 md:left-20 text-white">
               {loading ? (
@@ -99,7 +99,7 @@ const NewArrivals = () => {
               {loading ? (
                 <Skeleton height={400} width="100%" />
               ) : (
-                <img src={Speaker} alt="" className="w-40 " />
+                <img src="/Speaker.png" alt="" className="w-40 " />
               )}
               <div className="absolute top-20 md:top-20 left-10 md:left-10 text-white">
                 {loading ? (
@@ -125,7 +125,7 @@ const NewArrivals = () => {
                 {loading ? (
                   <Skeleton height={400} width="100%" />
                 ) : (
-                  <img src={Perfume} alt="" className="w-40"/>
+                  <img src="/Perfume.png" alt="" className="w-40"/>
                 )}
                 <div className="absolute top-20 md:top-20 left-10 md:left-10 text-white">
                   {loading ? (

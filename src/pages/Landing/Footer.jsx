@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Qrcode from "./images/Qrcode.png";
-import GooglePlay from "./images/GooglePlay.png";
-import AppStore from "./images/AppStore.png";
+// import Qrcode from "./images/Qrcode.png";
+// import GooglePlay from "./images/GooglePlay.png";
+// import AppStore from "./images/AppStore.png";
 import {
   BsFacebook,
   BsInstagram,
@@ -203,7 +203,7 @@ const Footer = () => {
                   {loading ? (
                     <Skeleton height={100} width={100} />
                   ) : (
-                    <img src={Qrcode} alt="" />
+                    <img src="/Qrcode.png" alt="" />
                   )}
                 </div>
                 <div>
@@ -214,8 +214,8 @@ const Footer = () => {
                     </>
                   ) : (
                     <>
-                      <img src={GooglePlay} alt="googleplay" className="mb-2" />
-                      <img src={AppStore} alt="appstore" />
+                      <img src="/GooglePlay.png" alt="googleplay" className="mb-2" />
+                      <img src="/AppStore.png" alt="appstore" />
                     </>
                   )}
                 </div>

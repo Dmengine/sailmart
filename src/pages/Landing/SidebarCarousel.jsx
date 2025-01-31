@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
-import DropDown1 from "./images/DropDown1.png";
-import Line from "./images/Line.png";
-import Pc1 from "./images/Pc1.png";
-import Pc2 from "./images/Pc2.png";
-import Pc6 from "./images/pc6.png";
-import Pc8 from "./images/Pc8.png";
-import Pc0 from "./images/Pc0.png";
+// import DropDown1 from "./images/DropDown1.png";
+// import Line from "./images/Line.png";
+// import Pc1 from "./images/Pc1.png";
+// import Pc2 from "./images/Pc2.png";
+// import Pc6 from "./images/pc6.png";
+// import Pc8 from "./images/Pc8.png";
+// import Pc0 from "./images/Pc0.png";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const SidebarCarousel = () => {
-  const images = [Pc1, Pc2, Pc6, Pc8, Pc0];
+  const images = [
+    "/Pc1.png",
+    "/Pc2.png",
+    "/Pc6.png",
+    "/Pc8.png",
+    "/Pc0.png"
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -69,7 +75,7 @@ const SidebarCarousel = () => {
                     <li className="flex gap-20 py-1.5">
                       <a href="#">Women’s Fashion</a>
                       <img
-                        src={DropDown1}
+                        src="/DropDown1.png"
                         alt="Dropdown Icon"
                         className="cursor-pointer"
                       />
@@ -77,7 +83,7 @@ const SidebarCarousel = () => {
                     <li className="flex gap-25 py-1.5">
                       <a href="#">Men’s Fashion</a>
                       <img
-                        src={DropDown1}
+                        src="/DropDown1.png"
                         alt="Dropdown Icon"
                         className="cursor-pointer"
                       />
@@ -119,7 +125,7 @@ const SidebarCarousel = () => {
                 {loading ? (
                   <Skeleton height={200} width={10} />
                 ) : (
-                  <img src={Line} alt="Line Divider" />
+                  <img src="/Line.png" alt="Line Divider" />
                 )}
               </div>
 

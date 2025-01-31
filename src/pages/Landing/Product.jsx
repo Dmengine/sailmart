@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Rectangle from "./images/Rectangle.png";
+// import Rectangle from "./images/Rectangle.png";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -35,7 +35,7 @@ const Product = () => {
               {loading ? (
                 <Skeleton height={100} width={200} />
               ) : (
-                <img src={Rectangle} alt="Today's deals banner" />
+                <img src="/Rectangle.png" alt="Today's deals banner" />
               )}
             </div>
             <div className="today-title font-bold text-red-600">

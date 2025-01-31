@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DropDown from "./images/DropDown.png";
+// import DropDown from "./images/DropDown.png";
 import {
   BsSearch,
   BsHeart,
@@ -59,7 +59,7 @@ const Landing = () => {
         </div>
         <div className="text-white flex items-center gap-4 md:gap-10">
               <p>English</p>
-              <img src={DropDown} alt="dropdown.png" className="w-5" />
+              <img src="/DropDown.png" alt="dropdown.png" className="w-5" />
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Rectangle from "./images/Rectangle.png";
-import Jbl from "./images/Jbl.png";
+// import Rectangle from "./images/Rectangle.png";
+// import Jbl from "./images/Jbl.png";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -77,7 +77,7 @@ const Bestselling = () => {
             {loading ? (
               <Skeleton height={100} width={200} />
             ) : (
-              <img src={Rectangle} alt="Today's.png" />
+              <img src="/Rectangle.png" alt="Today's.png" />
             )}
           </div>
           <div className="font-bold text-red-600">
@@ -166,7 +166,7 @@ const Bestselling = () => {
             {loading ? (
               <Skeleton height={200} width={200} />
             ) : (
-              <img src={Jbl} alt="" />
+              <img src="/Jbl.png" alt="" />
             )}
           </div>
           <div>
