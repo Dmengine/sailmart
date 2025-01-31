@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useCart } from "../../context/cartContext";
 import { useParams } from "react-router-dom";
-import star_icon from "/src/assets/star_icon.png";
-import star_dull_icon from "/src/assets/star_dull_icon.png";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import { Link } from "react-router";
 import Skeleton from "react-loading-skeleton";
@@ -183,11 +181,11 @@ const ProductDetails = () => {
                 {product.title}
               </h2>
               <div className="flex gap-2 items-center my-4">
-                <img src={star_icon} alt="" />
-                <img src={star_icon} alt="" />
-                <img src={star_icon} alt="" />
-                <img src={star_icon} alt="" />
-                <img src={star_dull_icon} alt="" />
+                <img src="/star_icon.png" alt="" />
+                <img src="/star_icon.png" alt="" />
+                <img src="/star_icon.png" alt="" />
+                <img src="/star_icon.png" alt="" />
+                <img src="/star_dull_icon.png" alt="" />
               </div>
 
               <div className="my-4">

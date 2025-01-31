@@ -1,5 +1,5 @@
-import phoneImgUrl from "../../assets/phone-icon.png"
-import emailImgUrl from "../../assets/email-icon.png"
+// import phoneImgUrl from "../../assets/phone-icon.png"
+// import emailImgUrl from "../../assets/email-icon.png"
 
 export default function Contact() {
 
@@ -16,7 +16,7 @@ export default function Contact() {
                             mb-4">
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
-                                <img src={phoneImgUrl} alt="phone-icon"/></div>
+                                <img src="/phone-icon.png" alt="phone-icon"/></div>
                             <p className="font-semibold">Call Us</p>
                         </div>
                         <p className="mb-4" >We are available 24/7, 7 days a week.</p>
@@ -27,7 +27,7 @@ export default function Contact() {
                             mb-6">
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
-                                <img src={emailImgUrl} alt="email-icon"/>
+                                <img src="/email-icon.png" alt="email-icon"/>
                                 </div>
                             <p className="font-semibold">Write To Us</p>
                         </div>
