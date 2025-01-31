@@ -53,53 +53,27 @@ const Landing = () => {
       {/* Top Banner */}
       <div className="w-full bg-black flex flex-col md:flex-row justify-center md:justify-evenly items-center text-center py-2">
         <div className="text-white text-sm">
-          {loading ? (
-            <Skeleton height={20} width={300} />
-          ) : (
             <h1>
               Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%
             </h1>
-          )}
         </div>
         <div className="text-white flex items-center gap-4 md:gap-10">
-          {loading ? (
-            <>
-              <Skeleton height={20} width={50} />
-              <Skeleton height={20} width={20} />
-            </>
-          ) : (
-            <>
               <p>English</p>
               <img src={DropDown} alt="dropdown.png" className="w-5" />
-            </>
-          )}
         </div>
       </div>
 
       {/* Navigation Bar */}
       <div className="w-full h-[50px] bg-white drop-shadow-md flex items-center justify-evenly px-4">
         <div className="font-bold text-red-600">
-          {loading ? (
-            <Skeleton height={30} width={100} />
-          ) : (
             <Link to="/">
               <h1>SAIL MART</h1>
             </Link>
-          )}
         </div>
 
         {/* Main Navigation */}
         <div className="hidden md:flex items-center gap-10">
           <ul className="flex item-center font-semibold gap-4 md:gap-10">
-            {loading ? (
-              <>
-                <Skeleton height={20} width={50} />
-                <Skeleton height={20} width={50} />
-                <Skeleton height={20} width={50} />
-                <Skeleton height={20} width={50} />
-              </>
-            ) : (
-              <>
                 <a href="/">
                   <li className="p-1 hover:bg-red-600 hover:text-white rounded-md transition-all cursor-pointer">
                     Home
@@ -124,63 +98,46 @@ const Landing = () => {
                     )}
                   </li>
                 </a>
-              </>
-            )}
           </ul>
         </div>
 
         {/* Search Input */}
         <div className="hidden md:flex items-center relative w-full max-w-[300px]">
-          {loading ? (
-            <Skeleton height={30} width={300} />
-          ) : (
-            <>
-              <BsSearch className="absolute left-3" size={15} />
-              <input
-                type="text"
-                placeholder="What are you looking for?"
-                className="w-full max-w-[240px] p-1 pl-8 rounded-sm border border-red-400 focus:outline-red-600"
-              />
-            </>
-          )}
+            <BsSearch className="absolute left-3" size={15} />
+            <input
+              type="text"
+              placeholder="What are you looking for?"
+              className="w-full max-w-[240px] p-1 pl-8 rounded-sm border border-red-400 focus:outline-red-600"
+            />
         </div>
 
         {/* Heart and Cart Icons */}
         <div className="relative flex items-center gap-10 cursor-pointer">
-          {loading ? (
-            <>
-              <Skeleton height={30} width={30} />
-              <Skeleton height={30} width={30} />
-            </>
-          ) : (
-            <>
-              <BsHeart size={30} />
-              <Link to="/cart">
-                <BsCart3 size={30} onClick={toggleIsCartOpen} />
-                <span
-                  style={{
-                    position: "absolute",
-                    bottom: 15,
-                    left: 85,
-                    textAlign: "center",
-                    fontSize: "13px",
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "100%",
-                    background: "red",
-                    color: "white",
-                  }}
-                >
-                  {cartCount}
-                </span>
-              </Link>
-              <div>
-                <Link to="/profile">
-                  <CgProfile size={30} className="cursor-pointe text-red-600" />
-                </Link>
-              </div>
-            </>
-          )}
+          <BsHeart size={30} />
+          <Link to="/cart">
+            <BsCart3 size={30} onClick={toggleIsCartOpen} />
+            <span
+              style={{
+                position: "absolute",
+                bottom: 15,
+                left: 85,
+                textAlign: "center",
+                fontSize: "13px",
+                width: "20px",
+                height: "20px",
+                borderRadius: "100%",
+                background: "red",
+                color: "white",
+              }}
+            >
+              {cartCount}
+            </span>
+          </Link>
+          <div>
+            <Link to="/profile">
+              <CgProfile size={30} className="cursor-pointe text-red-600" />
+            </Link>
+          </div>
         </div>
 
         {/* Menu Icon for Small Screens */}

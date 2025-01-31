@@ -4,9 +4,6 @@ import Ps5slim from "./images/Ps5slim.png";
 import Attractivewoman from "./images/Attractivewoman.png";
 import Speaker from "./images/Speaker.png";
 import Perfume from "./images/Perfume.png";
-import services5 from "../../assets/services5.png";
-import services6 from "../../assets/services6.png";
-import services7 from "../../assets/services7.png";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
