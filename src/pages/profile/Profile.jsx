@@ -19,7 +19,7 @@ const ProfilePage = () => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
         localStorage.setItem("redirectAfterLogin", location.pathname);
-        navigate("/profile");
+        navigate("/login");
       } else {
         setUser(currentUser);
 
@@ -102,7 +102,7 @@ const ProfilePage = () => {
           </div>
 
           <div className="bg-white p-8 rounded-lg shadow-lg w-200 max-w-1x2">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-red-600">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-6">
               Edit your profile
             </h2>
 
@@ -162,7 +162,7 @@ const ProfilePage = () => {
               {/* Submit Button */}
               <div className="text-right">
                 <button
-                  type="submit"
+                  type="button"
                   onClick={handleCancel}
                   className="w-full md:w-auto px-6 py-2 text-black font-semibold rounded-lg cursor-pointer "
                 >
@@ -176,6 +176,7 @@ const ProfilePage = () => {
                 </button>
 
                 <button
+                  type="button"
                   onClick={handleLogout}
                   className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition"
                 >
