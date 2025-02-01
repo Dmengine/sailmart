@@ -1,33 +1,34 @@
-import closeIcon from "../../assets/modal-close.png"
-import checkIcon from "../../assets/modal-check.png"
-import errorIcon from "../../assets/modal-error.png"
+import checkIcon from "../../../public/modal-check.png"
+import errorIcon from "../../../public/modal-error.png"
 
-export default function ContactModal({ modal, message, onClose}) {
+export default function ContactModal({ modal, message, closeModal }) {
     
     return (
         <>
             <main className={`fixed inset-0 flex justify-center items-center 
-                w-full h-full z-10 ${modal ? "visible bg-black/40" : "invisible"}`}>
-                <div className="p-8 w-11/12 h-[auto] bg-gray-50 rounded-xl
-                    shadow-lg flex flex-col items-center">
-                    <button onClick={onClose} className="self-end w-10 font-bold mb-4
-                        hover: hover:opacity-80">
-                        <img src={closeIcon} alt="close" 
-                        className=""/>
-                    </button>
+                w-full h-full z-10 ${modal ? "visible bg-black/50" : "invisible"}`}>
+                <div className="p-8 w-11/12 h-[auto] bg-gray-50 rounded-md
+                    shadow-lg flex flex-col items-center sm:w-[520px]">
                     <div className="flex flex-col items-center mb-4 text-center">
-                        <h4 className="text-4xl text-[#555] font-medium mb-4">
-                            {message ? "Message Sent!" 
-                                : "Failed. Please try again later."}
-                        </h4>
-                        <img src={message ? checkIcon : errorIcon} alt="" className="mb-2 w-24"/>
+                        <img src={message ? checkIcon : errorIcon} alt="" className="mb-4 w-24"/>
+                        {message ? 
+                            (<div className="text-[#555] font-medium">
+                                <p className="text-5xl leading-normal mb-2">Message sent!</p>
+                                <p className="text-xl">Thank you for reaching out.</p>
+                            </div>) :
+                            (<div className="text-[#555] font-medium">
+                                <p className="text-5xl leading-normal mb-2">Failed!</p>
+                                <p className="text-xl">Please check your internet 
+                                    connection and try again.
+                                </p>
+                            </div>)
+                        } 
                     </div>
-                    {/* <button onClick={onClose} className="bg-[#fafafa] text-[#db4444] w-40 sm:w-32 h-14
-                        text-2xl rounded-xl font-medium justify-self-end hover:bg-[#db4444] 
-                        hover:text-[#fafafa] border-[#db4444] border-solid border-3
-                        ">
-                        Close
-                    </button> */}
+                    <button onClick={closeModal} className="bg-[#db4444] text-[#fafafa] w-40 h-[50px]
+                        text-md rounded font-medium justify-self-end hover:bg-[#db0000] 
+                        hover:text-[#fafafa] m-4">
+                        OK
+                    </button>
                 </div>
             </main>
         </>
