@@ -1,8 +1,12 @@
+
 import { useState, useRef } from "react"
 import emailjs from '@emailjs/browser'
 import phoneImgUrl from "../../../public/phone-icon.png"
 import emailImgUrl from "../../../public/email-icon.png"
 import ContactModal from "./ContactModal"
+
+import React from 'react';
+
 
 export default function Contact() {
     const [status, setStatus] = useState({
@@ -52,8 +56,13 @@ export default function Contact() {
                             mb-4">
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
+
                                 <img src={phoneImgUrl} alt="phone-icon"/></div>
                             <p className="font-semibold text-2xl">Call Us</p>
+
+                                <img src="/phone-icon.png" alt="phone-icon"/></div>
+                            <p className="font-semibold">Call Us</p>
+
                         </div>
                         <p className="mb-4" >We are available 24/7, 7 days a week.</p>
                         <p><span className="font-medium">Phone</span>: +8801611112222</p>
@@ -63,7 +72,7 @@ export default function Contact() {
                             mb-6">
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
-                                <img src={emailImgUrl} alt="email-icon"/>
+                                <img src="/email-icon.png" alt="email-icon"/>
                                 </div>
                             <p className="font-semibold text-2xl">Write To Us</p>
                         </div>
@@ -91,6 +100,7 @@ export default function Contact() {
                                     placeholder="Your Name" 
                                     id="name" name="name" type="text" required
                                 />
+
                                 <input className="xl:col-span-1 xl:row-span-1 col-span-3 
                                     bg-gray-200 py-3 px-6 xl:px-4 opacity-50 xl:outline-none
                                     cursor-pointer outline-black hover:bg-gray-300" 
@@ -102,6 +112,19 @@ export default function Contact() {
                                     cursor-pointer outline-black hover:bg-gray-300" 
                                     placeholder="Your Phone Number"
                                     id="phone" name="phone" type="number" required
+
+                                <input className="sm:col-span-1 sm:row-span-1 col-span-3 
+                                    bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
+                                    cursor-pointer outline-black" 
+                                    placeholder="Your Email" 
+                                    id="name" name="name" type="text" required
+                                />
+                                <input className="sm:col-span-1 sm:row-span-1 col-span-3 
+                                    bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
+                                    cursor-pointer outline-black" 
+                                    placeholder="Your Password" 
+                                    id="name" name="name" type="text" required
+
                                 />
                                 <textarea className="col-span-3 row-span-3 bg-gray-200 
                                     py-3 px-6 resize-none xl:px-4 opacity-50 xl:outline-none
