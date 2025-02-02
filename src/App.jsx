@@ -21,6 +21,8 @@ import SignUp from "./pages/login-signup/SignUp";
 import Login from "./pages/login-signup/Login";
 import Footer from "./pages/Landing/Footer";
 import ProtectedRoute from "./component/ProtectedRoutes";
+import ProfilePage from "./pages/profile/Profile";
+
 
 const App = () => {
   return (
@@ -49,9 +51,12 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+             <Route path="/profile" element={<ProfilePage />} />
       </Routes>
         <Footer />
+
       </BrowserRouter>
+      <Footer />
     </div>
   );
 };

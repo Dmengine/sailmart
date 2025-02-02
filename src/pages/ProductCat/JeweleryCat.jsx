@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Rectangle from '../Landing/images/Rectangle.png'
+// import Rectangle from '../Landing/images/Rectangle.png'
 import SidebarCarousel from "../Landing/SidebarCarousel";
 
 const JeweleryCat = () => {
@@ -32,7 +32,7 @@ const JeweleryCat = () => {
       <div className="flex items-center gap-10 py-5 px-5 mx-auto">
               <div className="today-container flex gap-10">
                 <div className="">
-                  <img src={Rectangle} alt="Today's deals banner" />
+                  <img src="/Rectangle.png" alt="Today's deals banner" />
                 </div>
                 <div className="today-title font-bold text-red-600">
                   <h2>Jewelries category</h2>

@@ -1,5 +1,4 @@
-import phoneImgUrl from "../../assets/phone-icon.png"
-import emailImgUrl from "../../assets/email-icon.png"
+import React from 'react';
 
 export default function Contact() {
 
@@ -16,7 +15,7 @@ export default function Contact() {
                             mb-4">
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
-                                <img src={phoneImgUrl} alt="phone-icon"/></div>
+                                <img src="/phone-icon.png" alt="phone-icon"/></div>
                             <p className="font-semibold">Call Us</p>
                         </div>
                         <p className="mb-4" >We are available 24/7, 7 days a week.</p>
@@ -27,7 +26,7 @@ export default function Contact() {
                             mb-6">
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
-                                <img src={emailImgUrl} alt="email-icon"/>
+                                <img src="/email-icon.png" alt="email-icon"/>
                                 </div>
                             <p className="font-semibold">Write To Us</p>
                         </div>
@@ -59,13 +58,13 @@ export default function Contact() {
                                 <input className="sm:col-span-1 sm:row-span-1 col-span-3 
                                     bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
                                     cursor-pointer outline-black" 
-                                    placeholder="Your Name" 
+                                    placeholder="Your Email" 
                                     id="name" name="name" type="text" required
                                 />
                                 <input className="sm:col-span-1 sm:row-span-1 col-span-3 
                                     bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
                                     cursor-pointer outline-black" 
-                                    placeholder="Your Name" 
+                                    placeholder="Your Password" 
                                     id="name" name="name" type="text" required
                                 />
                                 <textarea className="col-span-3 row-span-3 bg-gray-200 
