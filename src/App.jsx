@@ -20,6 +20,7 @@ import ElectroncsCat from "./pages/ProductCat/ElectronicsCat";
 import SignUp from "./pages/login-signup/SignUp";
 import Login from "./pages/login-signup/Login";
 import Footer from "./pages/Landing/Footer";
+import ProtectedRoute from "./component/ProtectedRoutes";
 
 const App = () => {
   return (
@@ -40,9 +41,15 @@ const App = () => {
           <Route path="/ElectronicsCat" element={<ElectroncsCat />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
-
-          <Route path="/checkout" element={<CheckoutPage />} />
-        </Routes>
+          <Route
+          path="/checkout"
+          element={
+            <ProtectedRoute>
+              <CheckoutPage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
         <Footer />
       </BrowserRouter>
     </div>
@@ -50,3 +57,4 @@ const App = () => {
 };
 
 export default App;
+

@@ -57,8 +57,10 @@ const SignUp = () => {
                                 autoComplete='new-password'
                                 required
                                 value={password} onChange={(e) => { setPassword(e.target.value) }} name="password" placeholder="Password" className="border-b-2 focus:outline-none border-gray-500 py-1 w-80 mb-4" />{seePassword? <RiEyeLine onClick={showPassqord} />:<RiEyeOffLine onClick={showPassqord} />}</div>
-                <button className="w-80 h-12 bg-[#DB4444] mb-4"><a href="#" className="text-[#fff]" type="submit">Create Account</a></button>
-                
+                <button type="submit" className="w-80 h-12 bg-[#DB4444] text-white mb-4">
+  Create Account
+</button>
+
                 </form>
 
                 {errorMessage && (
