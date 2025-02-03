@@ -106,7 +106,7 @@ const Login = () => {
           disabled={isSignIngIn}
           onClick={(e) => { onGoogleSignIn(e); }}
           className="flex items-center justify-center w-80 h-12 bg-transparent border border-black-100 my-4">
-          <img src="/src/assets/GoogleIcon.png" alt="Google-icon" className="h-10 w-10" />
+          <img src="/GoogleIcon.png" alt="Google-icon" className="h-10 w-10" />
           <a href="#" className="text-[#000] ml-2">Sign up with Google</a>
         </button>
       </div>
