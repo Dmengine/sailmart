@@ -27,7 +27,7 @@ const Product = () => {
   }, []);
 
   return (
-    <div className="container mx-auto md:ml-10 px-4">
+    <div className="container mx-auto mt-10 px-4">
       <div className="bg-white overflow-hidden mt-5 md:mt-23">
         <div className="flex items-center gap-10 py-5 px-5 mx-auto">
           <div className="flex items-center gap-10">

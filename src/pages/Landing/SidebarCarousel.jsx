@@ -50,7 +50,7 @@ const SidebarCarousel = () => {
               )}
             </div>
             <div className="flex flex-col-reverse md:flex-row items-start md:item-center justify-evenly py-2 px-2">
-              <ul>
+              <ul className="hidden sm:block">
                 {loading ? (
                   <>
                     <Skeleton height={20} width={200} />

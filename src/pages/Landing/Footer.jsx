@@ -102,7 +102,7 @@ const Footer = () => {
                 {loading ? (
                   <Skeleton height={20} width={100} />
                 ) : (
-                  <a href="#" className="hover:text-red-400">
+                  <a href="/profile" className="hover:text-red-400">
                     My Account
                   </a>
                 )}
@@ -111,7 +111,7 @@ const Footer = () => {
                 {loading ? (
                   <Skeleton height={20} width={150} />
                 ) : (
-                  <a href="#" className="hover:text-red-400">
+                  <a href="/Login" className="hover:text-red-400">
                     Login/Register
                   </a>
                 )}
@@ -120,7 +120,7 @@ const Footer = () => {
                 {loading ? (
                   <Skeleton height={20} width={50} />
                 ) : (
-                  <a href="#" className="hover:text-red-400">
+                  <a href="/Cart" className="hover:text-red-400">
                     Cart
                   </a>
                 )}
@@ -129,8 +129,8 @@ const Footer = () => {
                 {loading ? (
                   <Skeleton height={20} width={100} />
                 ) : (
-                  <a href="#" className="hover:text-red-400">
-                    Wishlist
+                  <a href="/ProductList" className="hover:text-red-400">
+                    Products
                   </a>
                 )}
               </li>
@@ -138,7 +138,7 @@ const Footer = () => {
                 {loading ? (
                   <Skeleton height={20} width={50} />
                 ) : (
-                  <a href="#" className="hover:text-red-400">
+                  <a href="/MenCat" className="hover:text-red-400">
                     Shop
                   </a>
                 )}
@@ -185,7 +185,7 @@ const Footer = () => {
                 {loading ? (
                   <Skeleton height={20} width={100} />
                 ) : (
-                  <a href="#" className="hover:text-red-400">
+                  <a href="/Contact" className="hover:text-red-400">
                     Contact
                   </a>
                 )}

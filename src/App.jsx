@@ -53,7 +53,6 @@ const App = () => {
         />
              <Route path="/profile" element={<ProfilePage />} />
       </Routes>
-        <Footer />
 
       </BrowserRouter>
       <Footer />

@@ -71,7 +71,7 @@ const NewArrivals = () => {
             {loading ? (
               <Skeleton height={400} width="100%" />
             ) : (
-              <img src="/Attractivewoman.png" alt="" />
+              <img src="/attractivewoman.png" alt="" />
             )}
             <div className="absolute top-30 md:top-40 left-10 md:left-20 text-white">
               {loading ? (

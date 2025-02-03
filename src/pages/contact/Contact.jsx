@@ -31,12 +31,14 @@ export default function Contact() {
             },
         )
         .catch(() => {
-            setTimeout(setStatus({...status, modal: true, message:false}), 8000)
-            })
+          setTimeout(() => setStatus({...status, modal: true, message: false}), 8000)
+      })
+      
     }
 
     function closeModal () {
-        setStatus({...status, modal: false, loading: false})
+      setStatus((prev) => ({ ...prev, loading: true }));
+
     }
 
     const { message, modal, loading } = status
@@ -60,10 +62,9 @@ export default function Contact() {
                                 <img src={phoneImgUrl} alt="phone-icon"/></div>
                             <p className="font-semibold text-2xl">Call Us</p>
 
-                                <img src="/phone-icon.png" alt="phone-icon"/></div>
-                            <p className="font-semibold">Call Us</p>
-
-                        </div>
+                                {/* <img src={phoneImgUrl} alt="phone-icon"/></div>
+                            <p className="font-semibold">Call Us</p> */}
+                          </div>
                         <p className="mb-4" >We are available 24/7, 7 days a week.</p>
                         <p><span className="font-medium">Phone</span>: +8801611112222</p>
                         <div className="max-w-full md:max-w-full h-[1px] bg-gray-500
@@ -72,7 +73,7 @@ export default function Contact() {
                             mb-6">
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
-                                <img src="/email-icon.png" alt="email-icon"/>
+                                <img src={emailImgUrl} alt="email-icon"/>
                                 </div>
                             <p className="font-semibold text-2xl">Write To Us</p>
                         </div>
@@ -112,20 +113,20 @@ export default function Contact() {
                                     cursor-pointer outline-black hover:bg-gray-300" 
                                     placeholder="Your Phone Number"
                                     id="phone" name="phone" type="number" required
-
-                                <input className="sm:col-span-1 sm:row-span-1 col-span-3 
+                                />
+                                {/* <input className="sm:col-span-1 sm:row-span-1 col-span-3 
                                     bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
                                     cursor-pointer outline-black" 
                                     placeholder="Your Email" 
                                     id="name" name="name" type="text" required
-                                />
-                                <input className="sm:col-span-1 sm:row-span-1 col-span-3 
+                                /> */}
+                                {/* <input className="sm:col-span-1 sm:row-span-1 col-span-3 
                                     bg-gray-200 py-3 px-6 sm:px-4 opacity-50 sm:outline-none
                                     cursor-pointer outline-black" 
                                     placeholder="Your Password" 
                                     id="name" name="name" type="text" required
 
-                                />
+                                /> */}
                                 <textarea className="col-span-3 row-span-3 bg-gray-200 
                                     py-3 px-6 resize-none xl:px-4 opacity-50 xl:outline-none
                                     cursor-pointer outline-black hover:bg-gray-300" 

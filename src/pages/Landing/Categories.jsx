@@ -68,8 +68,8 @@ const Categories = () => {
 
       {/* CATEGORIES GRID */}
       <div>
-        <div className="flex gap-10 px-10 py-10 justify-center">
-          <div className="flex flex-col md:flex-row gap-10 px-10 py-10 mx-auto">
+        <div className="px-8 pb-8 overflow-hidden mx-auto mt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 max-w-full">
             {loading ? (
               Array(4)
                 .fill()
@@ -111,7 +111,7 @@ const Categories = () => {
                 <div>
                   <Link to="/JeweleryCat">
                     <button className="border p-10 flex flex-col items-center justify-center w-[180px] h-40 transition transform hover:scale-105 hover:shadow-xl hover:bg-red-500 hover:border-red-600 cursor-pointer">
-                      <img src="/HeadPhone.png" alt="" />
+                      <img src="/Headphone.png" alt="" />
                       <p>Jewelries</p>
                     </button>
                   </Link>

@@ -160,7 +160,7 @@ const ProfilePage = () => {
               </div>
 
               {/* Submit Button */}
-              <div className="text-right">
+              <div className="text-right m-5">
                 <button
                   type="button"
                   onClick={handleCancel}
@@ -170,7 +170,7 @@ const ProfilePage = () => {
                 </button>
                 <button
                   type="submit"
-                  className="w-full md:w-auto px-6 py-2 text-white font-semibold rounded-lg bg-[#DB4444] cursor-pointer"
+                  className="w-full md:w-auto px-6 py-2 text-white font-semibold rounded-lg bg-red-600 cursor-pointer mr-5"
                 >
                   Save Changes
                 </button>
@@ -178,7 +178,7 @@ const ProfilePage = () => {
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+                  className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
                 >
                   Logout
                 </button>
