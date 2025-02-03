@@ -1,8 +1,6 @@
 
 import { useState, useRef } from "react"
 import emailjs from '@emailjs/browser'
-import phoneImgUrl from "../../../public/phone-icon.png"
-import emailImgUrl from "../../../public/email-icon.png"
 import ContactModal from "./ContactModal"
 
 import React from 'react';
@@ -59,7 +57,7 @@ export default function Contact() {
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
 
-                                <img src={phoneImgUrl} alt="phone-icon"/></div>
+                                <img src="/phone-icon.png" alt="phone-icon"/></div>
                             <p className="font-semibold text-2xl">Call Us</p>
 
                                 {/* <img src={phoneImgUrl} alt="phone-icon"/></div>
@@ -73,7 +71,7 @@ export default function Contact() {
                             mb-6">
                             <div className="bg-[#db4444] w-10 h-10 
                                 rounded-full flex justify-center items-center">
-                                <img src={emailImgUrl} alt="email-icon"/>
+                                <img src="/email-icon.png" alt="email-icon"/>
                                 </div>
                             <p className="font-semibold text-2xl">Write To Us</p>
                         </div>

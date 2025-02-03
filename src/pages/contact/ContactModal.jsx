@@ -1,5 +1,4 @@
-import checkIcon from "../../../public/modal-check.png"
-import errorIcon from "../../../public/modal-error.png"
+import React from "react"
 
 export default function ContactModal({ modal, message, closeModal }) {
     
@@ -10,7 +9,7 @@ export default function ContactModal({ modal, message, closeModal }) {
                 <div className="p-8 w-11/12 h-[auto] bg-gray-50 rounded-md
                     shadow-lg flex flex-col items-center sm:w-[520px]">
                     <div className="flex flex-col items-center mb-4 text-center">
-                        <img src={message ? checkIcon : errorIcon} alt="" className="mb-4 w-24"/>
+                        <img src={message ? "//modal-check.png" : "/modal-error.png"} alt="" className="mb-4 w-24"/>
                         {message ? 
                             (<div className="text-[#555] font-medium">
                                 <p className="text-5xl leading-normal mb-2">Message sent!</p>
