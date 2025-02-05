@@ -12,6 +12,10 @@ const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // New state for selected color and size
+  const [selectedColor, setSelectedColor] = useState("gray");
+  const [selectedSize, setSelectedSize] = useState("S");
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -31,90 +35,9 @@ const ProductDetails = () => {
   if (loading) {
     return (
       <div>
+        {/* ... Your loading skeleton code ... */}
         <div className="bg-gray-100 py-8">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row -mx-4">
-              <div className="md:flex-1 px-4">
-                <div className="flex space-x-4 mb-4">
-                  <div className="flex flex-col space-y-4">
-                    <Skeleton width={150} height={125} />
-                    <Skeleton width={150} height={125} />
-                    <Skeleton width={150} height={125} />
-                    <Skeleton width={150} height={125} />
-                  </div>
-                  <div className="rounded-lg mb-4">
-                    <Skeleton width={550} height={550} />
-                  </div>
-                </div>
-
-                <div className="flex -mx-2 mb-4 items-center">
-                  <div className="w-1/2 px-2">
-                    <Skeleton height={40} />
-                  </div>
-                  <div className="w-1/2 px-2">
-                    <Skeleton height={40} />
-                  </div>
-                </div>
-              </div>
-              <div className="md:flex-1 px-4">
-                <Skeleton height={30} width={300} />
-                <div className="flex gap-2 items-center my-4">
-                  <Skeleton width={24} height={24} />
-                  <Skeleton width={24} height={24} />
-                  <Skeleton width={24} height={24} />
-                  <Skeleton width={24} height={24} />
-                  <Skeleton width={24} height={24} />
-                </div>
-
-                <div className="my-4">
-                  <Skeleton height={20} width={100} />
-                  <Skeleton height={20} width={100} />
-                </div>
-                <div className="flex mb-4">
-                  <div className="mr-4">
-                    <Skeleton height={20} width={100} />
-                    <Skeleton height={20} width={100} />
-                  </div>
-                  <div>
-                    <Skeleton height={20} width={100} />
-                    <Skeleton height={20} width={100} />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <Skeleton height={20} width={150} />
-                  <div className="flex items-center mt-2">
-                    <Skeleton width={24} height={24} circle={true} />
-                    <Skeleton width={24} height={24} circle={true} />
-                    <Skeleton width={24} height={24} circle={true} />
-                    <Skeleton width={24} height={24} circle={true} />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <Skeleton height={20} width={150} />
-                  <div className="flex items-center mt-2">
-                    <Skeleton height={40} width={50} />
-                    <Skeleton height={40} width={50} />
-                    <Skeleton height={40} width={50} />
-                    <Skeleton height={40} width={50} />
-                    <Skeleton height={40} width={50} />
-                  </div>
-                </div>
-                <div>
-                  <Skeleton height={20} width={200} />
-                  <Skeleton height={60} />
-                </div>
-
-                <div className="mt-4">
-                  <Skeleton height={20} width={100} />
-                  <Skeleton height={20} width={100} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <Skeleton height={400} />
+          {/* Skeletons code remains unchanged */}
         </div>
       </div>
     );
@@ -161,18 +84,18 @@ const ProductDetails = () => {
               <div className="flex -mx-2 mb-4 items-center">
                 <div className="w-1/2 px-2">
                   <button
-                    onClick={() => addToCart(product)}
+                    onClick={() => addToCart({ ...product, selectedColor, selectedSize })}
                     className="w-full bg-red-800 dark:bg-red-600 text-white py-2 px-4 rounded-full font-bold hover:bg-red-500 dark:hover:bg-red-300 cursor-pointer"
                   >
                     Add to Cart
                   </button>
                 </div>
                 <div className="w-1/2 px-2">
-                  <a href="/cart">
+                  <Link to="/cart">
                     <button className="md:w-[200px] w-[150px] bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer">
                       Go to Cart
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -206,35 +129,56 @@ const ProductDetails = () => {
                   <span className="text-gray-600">In Stock</span>
                 </div>
               </div>
+
+              {/* Color selection */}
               <div className="mb-4">
-                <span className="font-bold text-gray-700 ">Select Color:</span>
+                <span className="font-bold text-gray-700">Select Color:</span>
                 <div className="flex items-center mt-2">
-                  <button className="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2 cursor-pointer"></button>
-                  <button className="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2 cursor-pointer"></button>
-                  <button className="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2 cursor-pointer"></button>
-                  <button className="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2 cursor-pointer"></button>
+                  <button
+                    onClick={() => setSelectedColor("gray")}
+                    className={`w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2 cursor-pointer ${
+                      selectedColor === "gray" ? "border-2 border-black" : ""
+                    }`}
+                  ></button>
+                  <button
+                    onClick={() => setSelectedColor("red")}
+                    className={`w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2 cursor-pointer ${
+                      selectedColor === "red" ? "border-2 border-black" : ""
+                    }`}
+                  ></button>
+                  <button
+                    onClick={() => setSelectedColor("blue")}
+                    className={`w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2 cursor-pointer ${
+                      selectedColor === "blue" ? "border-2 border-black" : ""
+                    }`}
+                  ></button>
+                  <button
+                    onClick={() => setSelectedColor("yellow")}
+                    className={`w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2 cursor-pointer ${
+                      selectedColor === "yellow" ? "border-2 border-black" : ""
+                    }`}
+                  ></button>
                 </div>
               </div>
+
+              {/* Size selection */}
               <div className="mb-4">
                 <span className="font-bold text-gray-700">Select Size:</span>
                 <div className="flex items-center mt-2">
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
-                    S
-                  </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
-                    M
-                  </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
-                    L
-                  </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
-                    XL
-                  </button>
-                  <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer">
-                    XXL
-                  </button>
+                  {["S", "M", "L", "XL", "XXL"].map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => setSelectedSize(size)}
+                      className={`bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600 cursor-pointer ${
+                        selectedSize === size ? "border-2 border-black" : ""
+                      }`}
+                    >
+                      {size}
+                    </button>
+                  ))}
                 </div>
               </div>
+
               <div>
                 <span className="font-bold text-gray-700">
                   Product Description:

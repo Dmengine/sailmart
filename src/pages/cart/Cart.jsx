@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../../context/cartContext';
 import { useNavigate } from 'react-router-dom';
@@ -65,31 +64,44 @@ const Cart = () => {
           <ul className="w-full">
             {cartItems.map((item) => (
               <li
-                key={item.id}
+                key={item.id} // If needed, adjust this key if duplicate products with options are allowed
                 className="flex flex-col md:flex-row items-center justify-between gap-5 mb-5 p-4 rounded-lg"
                 style={{
                   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                 }}
               >
-                {/* Product Image and Title */}
+                {/* Product Image and Title with Options */}
                 <div className="flex items-center gap-4 flex-1">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-20 h-20 md:w-16 md:h-16 object-contain"
                   />
-                  <span
-                    className="text-lg font-semibold md:text-base"
-                    style={{
-                      maxWidth: "200px",
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                    }}
-                    title={item.title}
-                  >
-                    {item.title}
-                  </span>
+                  <div className="flex flex-col">
+                    <span
+                      className="text-lg font-semibold md:text-base"
+                      style={{
+                        maxWidth: "200px",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                      title={item.title}
+                    >
+                      {item.title}
+                    </span>
+                    {/* Display selected options if they exist */}
+                    {item.selectedColor && (
+                      <span className="text-sm text-gray-600">
+                        Color: {item.selectedColor}
+                      </span>
+                    )}
+                    {item.selectedSize && (
+                      <span className="text-sm text-gray-600">
+                        Size: {item.selectedSize}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 {/* Product Price */}
@@ -97,7 +109,7 @@ const Cart = () => {
                   {`$${item.price.toFixed(2)}`}
                 </div>
 
-                {/* quantity Input */}
+                {/* Quantity Input */}
                 <div className="flex-1">
                   <input
                     type="number"
@@ -113,12 +125,12 @@ const Cart = () => {
                   />
                 </div>
 
-                {/* subtotal */}
+                {/* Subtotal */}
                 <div className="flex-1 text-lg font-medium md:text-base">
                   {`Subtotal: $${(item.price * item.quantity).toFixed(2)}`}
                 </div>
 
-                {/* remove Button */}
+                {/* Remove Button */}
                 <div className="flex-1">
                   <button
                     onClick={() => removeFromCart(item.id)}
@@ -131,7 +143,7 @@ const Cart = () => {
             ))}
           </ul>
 
-          {/* total Price */}
+          {/* Total Price */}
           <h2 className="text-2xl font-bold mt-5">
             {`Total: $${calculateTotal().toFixed(2)}`}
           </h2>

@@ -78,7 +78,7 @@ const CheckoutPage = () => {
             <div>
               {cartItems.map((item) => (
                 <div
-                  key={item.id}
+                  key={item.id} // Consider using a composite key if the same product with different options can be added.
                   className="flex flex-wrap items-center justify-between gap-4 mb-4 border-b pb-4 last:border-none"
                 >
                   <div className="flex items-center gap-4 flex-1 min-w-[200px]">
@@ -94,6 +94,17 @@ const CheckoutPage = () => {
                       >
                         {item.title}
                       </p>
+                      {/* Display selected options if available */}
+                      {item.selectedColor && (
+                        <p className="text-sm text-gray-600">
+                          Color: {item.selectedColor}
+                        </p>
+                      )}
+                      {item.selectedSize && (
+                        <p className="text-sm text-gray-600">
+                          Size: {item.selectedSize}
+                        </p>
+                      )}
                       <p className="text-sm sm:text-base">
                         ${item.price.toFixed(2)}
                       </p>
