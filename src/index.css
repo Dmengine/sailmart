@@ -12,11 +12,11 @@
     animation: marquee 8s linear infinite;
 } */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .marquee{
     animation: marquee 8s linear infinite;
     white-space: nowrap;
     display: inline-block;
     padding-right: 100%;
     }
-}
+} */

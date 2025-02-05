@@ -68,8 +68,8 @@ const Categories = () => {
 
       {/* CATEGORIES GRID */}
       <div>
-        <div className="px-8 pb-8 overflow-hidden mx-auto mt-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 max-w-full">
+        <div className=" overflow-hidden mx-auto mt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 place-content-center place-items-center max-w-full">
             {loading ? (
               Array(4)
                 .fill()
