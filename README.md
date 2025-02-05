@@ -3,10 +3,10 @@
 Sail Mart is a modern e-commerce platform built using React and Vite. This project enables users to authenticate, browse products, add items to their cart, checkout, and filter products by variant. The platform also includes an About page, a Contact page, and React Skeleton for better UI/UX.
 
 ## Live Demo
-- **Live URL**: [Deployed on Vercel](https://sailcommerce.vercel.app)
+- **Live URL**: [Deployed on Vercel](https://sailmart-one.vercel.app/)
 
 ## Repository
-- **GitHub Repo**: [SailCommerce GitHub](https://github.com/Dmengine/sailcommerce)
+- **GitHub Repo**: [Sail Mart GitHub](https://github.com/Dmengine/sailmart)
 
 
 ## Technologies Used
