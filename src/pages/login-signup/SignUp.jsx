@@ -1,5 +1,4 @@
 import React from "react";
-import SideImage from "../login-signup/side-image.png";
 import { useState } from "react";
 import { RiEyeLine } from "react-icons/ri";
 import { RiEyeOffLine } from "react-icons/ri";
@@ -61,8 +60,8 @@ const SignUp = () => {
   return (
     <div>
       <div className="lg:flex pt-12 pl-8 pb-12">
-        <div className="w-80 ml-2 lg:w-1/2 mr-44 h-80">
-          <img src={SideImage} alt="left image" />
+        <div className="w-80 ml-2 lg:w-1/2 mr-44 h-96 md:h-[800px]">
+          <img src="/side-image.png" alt="left image" className="w-full h-full"/>
         </div>
 
         <div className="ml-4 lg:w-1/2 mt-24">
