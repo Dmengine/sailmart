@@ -8,10 +8,6 @@ Sail Mart is a modern e-commerce platform built using React and Vite. This proje
 ## Repository
 - **GitHub Repo**: [SailCommerce GitHub](https://github.com/Dmengine/sailcommerce)
 
-## Documentation
-- **Google Docs PDF**: [SailCommerce Documentation](#) *(Upload and update with the actual link)*
-
----
 
 ## Technologies Used
 
