@@ -103,13 +103,13 @@ fetchProducts();
 
 ## Contributors
 - **Development Team**: [
-    Oladimeji Ayinde - Team Lead
-    Fesomu Yusuf - Assistance Team Lead
-    Emem Etukubo - Community Manager
-    Onyeani Faith - Facilitator
-    Emmanuel Alabi - Business Strategist
-    Balogun Taoheed
-    Mary Francis
+    Oladimeji Ayinde - Team Lead,
+    Fesomu Yusuf - Assistance Team Lead,6
+    Emem Etukubo - Community Manager,
+    Onyeani Faith - Facilitator,
+    Emmanuel Alabi - Business Strategist,
+    Balogun Taoheed,
+    Mary Francis,
     Aminat Amusa
 ]
 
