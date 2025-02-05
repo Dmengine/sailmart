@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import SideImage from "../login-signup/side-image.png";
-import { doSignInWithEmailAndPassword, doSignInWithGoogle } from "../../firebase/auth";
+import {
+  doSignInWithEmailAndPassword,
+  doSignInWithGoogle,
+} from "../../firebase/auth";
 import { useNavigate, useLocation } from "react-router-dom";
 import { RiEyeLine } from "react-icons/ri";
 import { RiEyeOffLine } from "react-icons/ri";
@@ -14,7 +17,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
   const showPassword = () => {
     setSeePassword(!seePassword);
@@ -42,7 +45,12 @@ const Login = () => {
       setIsSignIngIn(true);
       doSignInWithGoogle()
         .then(() => {
-          navigate(from, { replace: true });
+          const redirectPath =
+            localStorage.getItem("redirectAfterLogin") || "/profile";
+          localStorage.removeItem("redirectAfterLogin");
+          navigate(redirectPath);
+
+          // navigate(from, { replace: true });
         })
         .catch((err) => {
           setIsSignIngIn(false);
@@ -66,25 +74,36 @@ const Login = () => {
               autoComplete="email"
               required
               value={email}
-              onChange={(e) => { setEmail(e.target.value); }}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
               type="email"
               name="email"
               placeholder="Email or Phone Number"
               className="border-b-2 focus:outline-none border-gray-500 py-1 w-80 mb-4"
-            /> <br />
+            />{" "}
+            <br />
             <div className="flex">
               <input
                 type={seePassword ? "password" : "text"}
                 autoComplete="current-password"
                 name="password"
                 value={password}
-                onChange={(e) => { setPassword(e.target.value); }}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
                 placeholder="Password"
                 className="border-b-2 focus:outline-none border-gray-500 py-1 w-80 mb-4"
               />
-              {seePassword ? <RiEyeLine onClick={showPassword} /> : <RiEyeOffLine onClick={showPassword} />}
+              {seePassword ? (
+                <RiEyeLine onClick={showPassword} className="cursor-pointer" />
+              ) : (
+                <RiEyeOffLine
+                  onClick={showPassword}
+                  className="cursor-pointer"
+                />
+              )}
             </div>
-
             {errorMessage && (
               <span className="text-red-600 font-bold">{errorMessage}</span>
             )}
@@ -95,19 +114,29 @@ const Login = () => {
               disabled={isSignIngIn}
               type="submit"
               onClick={handleSubmit}
-              className="w-4/7 h-12 bg-[#DB4444] mb-4 mr-18 rounded-md">
-              {isSignIngIn ? 'Signing In...' : 'Sign In'}
+              className="w-4/7 h-12 bg-[#DB4444] mb-4 mr-18 rounded-md cursor-pointer"
+            >
+              {isSignIngIn ? "Signing In..." : "Sign In"}
             </button>
 
-            <p className="mt-3"><a href="#" className="text-[#DB4444]">Forgot Password?</a></p>
+            <p className="mt-3">
+              <a href="#" className="text-[#DB4444]">
+                Forgot Password?
+              </a>
+            </p>
           </div>
         </div>
         <button
           disabled={isSignIngIn}
-          onClick={(e) => { onGoogleSignIn(e); }}
-          className="flex items-center justify-center w-80 h-12 bg-transparent border border-black-100 my-4">
+          onClick={(e) => {
+            onGoogleSignIn(e);
+          }}
+          className="flex items-center justify-center w-80 h-12 bg-transparent border border-black-100 my-4"
+        >
           <img src="/GoogleIcon.png" alt="Google-icon" className="h-10 w-10" />
-          <a href="#" className="text-[#000] ml-2">Sign up with Google</a>
+          <a href="#" className="text-[#000] ml-2">
+            Sign up with Google
+          </a>
         </button>
       </div>
     </div>

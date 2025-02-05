@@ -23,7 +23,6 @@ import Footer from "./pages/Landing/Footer";
 import ProtectedRoute from "./component/ProtectedRoutes";
 import ProfilePage from "./pages/profile/Profile";
 
-
 const App = () => {
   return (
     <div>
@@ -44,16 +43,15 @@ const App = () => {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
           <Route
-          path="/checkout"
-          element={
-            <ProtectedRoute>
-              <CheckoutPage />
-            </ProtectedRoute>
-          }
-        />
-             <Route path="/profile" element={<ProfilePage />} />
-      </Routes>
-
+            path="/checkout"
+            element={
+              <ProtectedRoute>
+                <CheckoutPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
       </BrowserRouter>
       <Footer />
     </div>
@@ -61,4 +59,3 @@ const App = () => {
 };
 
 export default App;
-

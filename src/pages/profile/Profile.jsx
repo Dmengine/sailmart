@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import { updateProfile } from "firebase/auth";
+import { onAuthStateChanged, updateProfile } from "firebase/auth";
+// import { updateProfile } from "firebase/auth";
 import { signOut } from "firebase/auth";
 
 const ProfilePage = () => {
@@ -12,22 +12,27 @@ const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
         localStorage.setItem("redirectAfterLogin", location.pathname);
-        navigate("/login");
+        navigate("/signup");
       } else {
         setUser(currentUser);
 
         if (currentUser.displayName) {
           const nameParts = currentUser.displayName.split(" ");
           setFirstName(nameParts[0] || "");
-          setLastName(nameParts[1] || "");
+          setLastName(nameParts.slice(1).join(" ") || "");
+          setDisplayName(nameParts[0] || "User");
         }
+
         setEmail(currentUser.email || "");
       }
     });
@@ -35,40 +40,42 @@ const ProfilePage = () => {
     return () => unsubscribe();
   }, [navigate, location]);
 
-  const handleUpdateProfile = async (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
-
     if (!user) return;
 
-    try {
-      // Update Firebase profile
-      await updateProfile(user, {
-        displayName: `${firstName} ${lastName}`,
-      });
+    setIsSaving(true);
+    setErrorMessage("");
 
-      alert("Profile updated successfully!");
+    try {
+      const newDisplayName = `${firstName} ${lastName}`.trim();
+      await updateProfile(user, { displayName: newDisplayName });
+
+      // Only update the display name **after** a successful save
+      setDisplayName(firstName);
+      // alert("Profile updated successfully!");
     } catch (error) {
-      console.error("Error updating profile:", error);
-      alert("Failed to update profile.");
+      setErrorMessage("Failed to update profile: " + error.message);
+    } finally {
+      setIsSaving(false);
     }
   };
 
   if (!user) return null;
 
   const handleCancel = () => {
-    // Reset form fields to the original user data
     if (user) {
       setFirstName(user.displayName?.split(" ")[0] || "");
       setLastName(user.displayName?.split(" ")[1] || "");
       setEmail(user.email || "");
-      setAddress(""); // Set this to whatever default address data you store
+      setAddress("");
     }
   };
 
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        navigate("/login"); // Redirect user to login page after logout
+        navigate("/login");
       })
       .catch((error) => {
         console.error("Logout Error:", error);
@@ -79,12 +86,13 @@ const ProfilePage = () => {
     <div>
       <div className="w-full pl-20 pt-10">
         <h1>
-          Welcome! <span className="text-red-600">{firstName}</span>
+          Welcome! <span className="text-red-600">{displayName || "User"}</span>
         </h1>
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       </div>
       <div className="min-h-screen flex items-center bg-white-100 p-6">
         <div className="lg:flex pt-0 pl-8 pb-12">
-          <div className="w-100 mr-30 p-6 lg:w-1/2">
+          <div className="w-100 mr-20 p-6 lg:w-1/2">
             <h2 className="font-semibold text-gray-800 pb-2 mb-2">
               Manage My Account
             </h2>
@@ -102,12 +110,11 @@ const ProfilePage = () => {
           </div>
 
           <div className="flex flex-col justify-center bg-white p-8 rounded-lg shadow-lg w-[350px] md:w-200 md:max-w-1x2">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-red-600">
               Edit your profile
             </h2>
 
-            <form onSubmit={handleUpdateProfile} className="form-box">
-              {/* First Name & Last Name */}
+            <form onSubmit={handleSave} className="form-box">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                 <div>
                   <label className="block text-gray-600 font-medium">
@@ -133,7 +140,6 @@ const ProfilePage = () => {
                 </div>
               </div>
 
-              {/* Email & Address */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                 <div>
                   <label className="block text-gray-600 font-medium">
@@ -162,7 +168,7 @@ const ProfilePage = () => {
               {/* Submit Button */}
               <div className="md:text-right md:m-5">
                 <button
-                  type="button"
+                  type="submit"
                   onClick={handleCancel}
                   className="md:w-full md:w-auto px-6 py-2 text-black font-semibold rounded-lg cursor-pointer "
                 >
@@ -171,15 +177,15 @@ const ProfilePage = () => {
                 <div>
                   <button
                   type="submit"
-                  className="md:w-full md:w-auto px-6 py-2 text-white font-semibold rounded-lg bg-red-600 cursor-pointer mr-5 md:mb-2"
+                  className="md:w-full md:w-auto px-6 py-2 text-white font-semibold rounded-lg bg-[#DB4444] cursor-pointer md:mb-2"
                 >
                   Save Changes
                 </button>
+                <br />
 
                 <button
-                  type="button"
                   onClick={handleLogout}
-                  className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+                  className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition cursor-pointer mt-10"
                 >
                   Logout
                 </button>
