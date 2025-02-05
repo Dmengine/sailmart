@@ -101,7 +101,7 @@ const ProfilePage = () => {
             </ul>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-lg w-200 max-w-1x2">
+          <div className="flex flex-col justify-center bg-white p-8 rounded-lg shadow-lg w-[350px] md:w-200 md:max-w-1x2">
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
               Edit your profile
             </h2>
@@ -117,7 +117,7 @@ const ProfilePage = () => {
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="mt-1 w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="mt-1 md:w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -128,7 +128,7 @@ const ProfilePage = () => {
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="mt-1 w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="mt-1 md:w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -143,7 +143,7 @@ const ProfilePage = () => {
                     type="email"
                     value={email}
                     disabled
-                    className="mt-1 w-full p-2 border bg-gray-100 rounded-lg focus:outline-none"
+                    className="mt-1 md:w-full p-2 border bg-gray-100 rounded-lg focus:outline-none"
                   />
                 </div>
                 <div>
@@ -154,23 +154,24 @@ const ProfilePage = () => {
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    className="mt-1 w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="mt-1 md:w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
 
               {/* Submit Button */}
-              <div className="text-right m-5">
+              <div className="md:text-right md:m-5">
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="w-full md:w-auto px-6 py-2 text-black font-semibold rounded-lg cursor-pointer "
+                  className="md:w-full md:w-auto px-6 py-2 text-black font-semibold rounded-lg cursor-pointer "
                 >
                   Cancel
                 </button>
-                <button
+                <div>
+                  <button
                   type="submit"
-                  className="w-full md:w-auto px-6 py-2 text-white font-semibold rounded-lg bg-red-600 cursor-pointer mr-5"
+                  className="md:w-full md:w-auto px-6 py-2 text-white font-semibold rounded-lg bg-red-600 cursor-pointer mr-5 md:mb-2"
                 >
                   Save Changes
                 </button>
@@ -182,6 +183,8 @@ const ProfilePage = () => {
                 >
                   Logout
                 </button>
+                </div>
+                
               </div>
             </form>
           </div>
