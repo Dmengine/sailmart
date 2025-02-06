@@ -48,11 +48,11 @@ Sail Mart is a modern e-commerce platform built using React and Vite. This proje
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Dmengine/sailcommerce.git
+   git clone https://github.com/Dmengine/sailmart.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd sailcommerce
+   cd sailmart
    ```
 3. Install dependencies:
    ```bash
@@ -69,7 +69,7 @@ Sail Mart is a modern e-commerce platform built using React and Vite. This proje
 This project was bootstrapped using **React + Vite**.
 
 ```bash
-npm create vite@latest sailcommerce --template react
+npm create vite@latest sailmart --template react
 ```
 
 ### CSS Library
