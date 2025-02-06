@@ -108,6 +108,7 @@ fetchProducts();
     Balogun Taoheed,
     Mary Francis,
     Aminat Amusa
+    Daniel John
 ]
 
 For any questions or contributions, feel free to create an issue on GitHub.
