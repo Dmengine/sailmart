@@ -20,6 +20,7 @@ Sail Mart is a modern e-commerce platform built using React and Vite. This proje
 - **Fetch API with Async/Await**: Used for making API calls.
 - **FakeStoreAPI**: Provides mock e-commerce data for product listings.
 - **EmailJS**: Used for handling contact form submissions via email.
+- **Paystack**: Used for payment integration.
 
 ### Project Management & Architecture
 - **Jira**: Used for task management and collaboration.
