@@ -107,7 +107,7 @@ fetchProducts();
     Emmanuel Alabi - Business Strategist,
     Balogun Taoheed,
     Mary Francis,
-    Aminat Amusa
+    Aminat Amusa,
     Daniel John
 ]
 
