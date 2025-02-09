@@ -1,2 +1,22 @@
 @import "tailwindcss";
 
+@keyframes marquee {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+/* .marquee{
+    animation: marquee 8s linear infinite;
+} */
+
+/* @media (max-width: 768px) {
+    .marquee{
+    animation: marquee 8s linear infinite;
+    white-space: nowrap;
+    display: inline-block;
+    padding-right: 100%;
+    }
+} */
