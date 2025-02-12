@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import Rectangle from '../Landing/images/Rectangle.png'
 import SidebarCarousel from "../Landing/SidebarCarousel";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const WomenCat = () => {
   const [products, setProduct] = useState([]);
@@ -23,7 +25,9 @@ const WomenCat = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading products...</p>;
+    return <div className="flex items-center justify-center min-h-screen">
+          <Skeleton width={100} height={100} count={10} />
+        </div>;
   }
 
   return (

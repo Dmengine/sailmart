@@ -9,17 +9,22 @@ const About = () => {
           <h1 className="font-sans text-4xl lg:text-xl pb-5 font-bold tracking-[.05em]">
             Our Story
           </h1>
-          <p className="leading-8 tracking-tight">
-            Launced in 2015, Exclusive is South Asia’s premier online shopping
-            makterplace with an active presense in Bangladesh. Supported by wide
-            range of tailored marketing, data and service solutions, Exclusive
-            has 10,500 sallers and 300 brands and serves 3 millioons customers
-            across the region.
+          <p className="leading-8 tracking-tight md:text-xl">
+            Welcome to SAIL MART, your one-stop destination for quality products and seamless shopping!
+
+            SAIL MART was born out of passion and innovation during our time at SAIL Nigeria’s Frontend 
+            Development Cohort. As a team of aspiring developers, we set out to build more than just a 
+            project, we aimed to create a fully functional eCommerce platform that reflects the skills, 
+            dedication, and teamwork we developed throughout the cohort.
           </p>
-          <p className="leading-8 tracking-tight">
-            Exclusive has more than 1 Million products to offer, growing at a
-            very fast. Exclusive offers a diverse assotment in categories
-            ranging from consumer.
+          <p className="leading-8 tracking-tight md:text-xl">
+            At SAIL MART, we believe in efficiency, user-friendly design, and exceptional customer experience. Our platform is crafted to provide a smooth, hassle-free shopping journey, showcasing everything we have learned in web development, design, and functionality.
+
+            More than just an eCommerce site, SAIL MART represents our growth, creativity, and commitment to 
+            delivering high-quality digital experiences. This project is a testament to how far we have come 
+            and where we are headed as future tech professionals.
+
+            Thank you for being part of our journey. We hope you enjoy the SAIL MART experience!
           </p>
         </div>
         <img
