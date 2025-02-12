@@ -114,7 +114,7 @@ const Login = () => {
               disabled={isSignIngIn}
               type="submit"
               onClick={handleSubmit}
-              className="w-4/7 h-12 bg-[#DB4444] mb-4 mr-18 rounded-md cursor-pointer"
+              className="w-80 h-12 bg-[#DB4444] mb-4 mr-18 rounded-md cursor-pointer"
             >
               {isSignIngIn ? "Signing In..." : "Sign In"}
             </button>
