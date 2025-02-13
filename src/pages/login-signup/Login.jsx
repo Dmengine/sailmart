@@ -46,11 +46,11 @@ const Login = () => {
       doSignInWithGoogle()
         .then(() => {
           const redirectPath =
-            localStorage.getItem("redirectAfterLogin") || "/profile";
+            localStorage.getItem("redirectAfterLogin") || "/home";
           localStorage.removeItem("redirectAfterLogin");
-          navigate(redirectPath);
-
-          // navigate(from, { replace: true });
+          // // navigate(redirectPath);
+          // navigate(redirectPath, { replace: true });
+          navigate(from, { replace: true });
         })
         .catch((err) => {
           setIsSignIngIn(false);
@@ -62,7 +62,7 @@ const Login = () => {
   return (
     <div className="lg:flex pt-12 pl-8 pb-12">
       <div className="w-80 h-96 md:h-[800px] ml-2 lg:w-1/2 mr-44">
-        <img src="/side-image.png" alt="left image" className="w-full h-full"/>
+        <img src="/side-image.png" alt="left image" className="w-full h-full" />
       </div>
 
       <div className="ml-4 lg:w-1/2 mt-28">
