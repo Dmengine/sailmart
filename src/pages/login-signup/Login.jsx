@@ -85,7 +85,7 @@ const Login = () => {
             <br />
             <div className="flex">
               <input
-                type={seePassword ? "password" : "text"}
+                type={seePassword ? "text" : "password"}
                 autoComplete="current-password"
                 name="password"
                 value={password}
@@ -96,12 +96,12 @@ const Login = () => {
                 className="border-b-2 focus:outline-none border-gray-500 py-1 w-80 mb-4"
               />
               {seePassword ? (
-                <RiEyeLine onClick={showPassword} className="cursor-pointer" />
-              ) : (
                 <RiEyeOffLine
                   onClick={showPassword}
                   className="cursor-pointer"
                 />
+              ) : (
+                <RiEyeLine onClick={showPassword} className="cursor-pointer" />
               )}
             </div>
             {errorMessage && (

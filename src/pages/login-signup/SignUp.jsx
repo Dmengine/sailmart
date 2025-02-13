@@ -48,9 +48,10 @@ const SignUp = () => {
     }
   };
 
-  const showPassqord = () => {
+  const showPassword = () => {
     setSeePassword(!seePassword);
   };
+
   return (
     <div>
       <div className="lg:flex pt-12 pl-8 pb-12">
@@ -103,7 +104,7 @@ const SignUp = () => {
               <div className="flex">
                 {" "}
                 <input
-                  type={seePassword ? "password" : "text"}
+                  type={seePassword ? "text" : "password"}
                   disabled={isRegistering}
                   autoComplete="new-password"
                   required
@@ -116,9 +117,15 @@ const SignUp = () => {
                   className="border-b-2 focus:outline-none border-gray-500 py-1 w-80 mb-4"
                 />
                 {seePassword ? (
-                  <RiEyeLine onClick={showPassqord} />
+                  <RiEyeOffLine
+                    onClick={showPassword}
+                    className="cursor-pointer"
+                  />
                 ) : (
-                  <RiEyeOffLine onClick={showPassqord} />
+                  <RiEyeLine
+                    onClick={showPassword}
+                    className="cursor-pointer"
+                  />
                 )}
               </div>
               <button
