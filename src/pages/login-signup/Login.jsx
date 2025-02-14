@@ -46,11 +46,11 @@ const Login = () => {
       doSignInWithGoogle()
         .then(() => {
           const redirectPath =
-            localStorage.getItem("redirectAfterLogin") || "/profile";
+            localStorage.getItem("redirectAfterLogin") || "/home";
           localStorage.removeItem("redirectAfterLogin");
-          navigate(redirectPath);
-
-          // navigate(from, { replace: true });
+          // // navigate(redirectPath);
+          // navigate(redirectPath, { replace: true });
+          navigate(from, { replace: true });
         })
         .catch((err) => {
           setIsSignIngIn(false);
@@ -62,7 +62,7 @@ const Login = () => {
   return (
     <div className="lg:flex pt-12 pl-8 pb-12">
       <div className="w-80 h-96 md:h-[800px] ml-2 lg:w-1/2 mr-44">
-        <img src="/side-image.png" alt="left image" className="w-full h-full"/>
+        <img src="/side-image.png" alt="left image" className="w-full h-full" />
       </div>
 
       <div className="ml-4 lg:w-1/2 mt-28">
@@ -85,7 +85,7 @@ const Login = () => {
             <br />
             <div className="flex">
               <input
-                type={seePassword ? "password" : "text"}
+                type={seePassword ? "text" : "password"}
                 autoComplete="current-password"
                 name="password"
                 value={password}
@@ -96,12 +96,12 @@ const Login = () => {
                 className="border-b-2 focus:outline-none border-gray-500 py-1 w-80 mb-4"
               />
               {seePassword ? (
-                <RiEyeLine onClick={showPassword} className="cursor-pointer" />
-              ) : (
                 <RiEyeOffLine
                   onClick={showPassword}
                   className="cursor-pointer"
                 />
+              ) : (
+                <RiEyeLine onClick={showPassword} className="cursor-pointer" />
               )}
             </div>
             {errorMessage && (
@@ -114,7 +114,7 @@ const Login = () => {
               disabled={isSignIngIn}
               type="submit"
               onClick={handleSubmit}
-              className="w-4/7 h-12 bg-[#DB4444] mb-4 mr-18 rounded-md cursor-pointer"
+              className="w-80 h-12 bg-[#DB4444] mb-4 mr-18 rounded-md cursor-pointer"
             >
               {isSignIngIn ? "Signing In..." : "Sign In"}
             </button>

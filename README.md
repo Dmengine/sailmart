@@ -20,6 +20,7 @@ Sail Mart is a modern e-commerce platform built using React and Vite. This proje
 - **Fetch API with Async/Await**: Used for making API calls.
 - **FakeStoreAPI**: Provides mock e-commerce data for product listings.
 - **EmailJS**: Used for handling contact form submissions via email.
+- **Paystack**: Used for payment integration.
 
 ### Project Management & Architecture
 - **Jira**: Used for task management and collaboration.
@@ -47,11 +48,11 @@ Sail Mart is a modern e-commerce platform built using React and Vite. This proje
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Dmengine/sailcommerce.git
+   git clone https://github.com/Dmengine/sailmart.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd sailcommerce
+   cd sailmart
    ```
 3. Install dependencies:
    ```bash
@@ -68,7 +69,7 @@ Sail Mart is a modern e-commerce platform built using React and Vite. This proje
 This project was bootstrapped using **React + Vite**.
 
 ```bash
-npm create vite@latest sailcommerce --template react
+npm create vite@latest sailmart --template react
 ```
 
 ### CSS Library
@@ -100,13 +101,14 @@ fetchProducts();
 ## Contributors
 - **Development Team**: [
     Oladimeji Ayinde - Team Lead,
-    Fesomu Yusuf - Assistance Team Lead,6
-    Emem Etukubo - Community Manager,
+    Fesomu Yusuf - Assistance,
+    Emem Etukudo - Community Manager,
     Onyeani Faith - Facilitator,
     Emmanuel Alabi - Business Strategist,
     Balogun Taoheed,
     Mary Francis,
-    Aminat Amusa
+    Aminat Amusa,
+    Daniel John
 ]
 
 For any questions or contributions, feel free to create an issue on GitHub.
