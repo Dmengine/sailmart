@@ -81,16 +81,16 @@ const CheckoutPage = () => {
                     <img src={item.image} alt={item.title} className="w-16 h-16 sm:w-20 sm:h-20 rounded-md object-cover" />
                     <div>
                       <p className="font-medium text-base sm:text-lg truncate max-w-[200px]" title={item.title}>{item.title}</p>
-                      <p className="text-sm sm:text-base">${item.price.toFixed(2)}</p>
+                      <p className="text-sm sm:text-base">₦{item.price * 1000}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 flex-1">
                     <input type="number" value={item.quantity} min="1" onChange={(e) => addToCart({ id: item.id, quantity: parseInt(e.target.value) })} className="w-16 border text-center text-sm sm:text-base font-medium" />
-                    <p className="font-medium text-sm sm:text-base">Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
+                    <p className="font-medium text-sm sm:text-base">Subtotal: ₦{(item.price * item.quantity) * 1000}</p>
                   </div>
                 </div>
               ))}
-              <h3 className="text-xl font-semibold mt-4 text-right">Total: ${calculateTotal().toFixed(2)}</h3>
+              <h3 className="text-xl font-semibold mt-4 text-right">Total: ₦{calculateTotal() * 1000}</h3>
             </div>
           }
         </div>

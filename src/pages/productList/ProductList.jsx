@@ -109,7 +109,7 @@ const ProductList = () => {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-3xl md:text-xl font-bold text-gray-900 dark:text-white">
-                  ${product.price.toFixed(2)}
+                ₦{(product.price * 1000)}
                 </span>
                 <Link
                   to={`/productList/${product.id}`}

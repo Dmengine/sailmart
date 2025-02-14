@@ -141,7 +141,7 @@ const Bestselling = () => {
                         {product.title.substring(0, 12)}
                       </h3>
                       <p className="text-3xl md:text-xl font-bold text-gray-900 dark:text-white">
-                        ${product.price}
+                      ₦{(product.price * 1000)}
                       </p>
                       <div className="flex items-center mt-2">
                         {/* Render stars for ratings */}

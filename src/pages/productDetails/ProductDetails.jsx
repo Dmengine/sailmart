@@ -144,7 +144,7 @@ const ProductDetails = () => {
               <div className="flex mb-4">
                 <div className="mr-4">
                   <span className="font-bold text-gray-700">Price:</span>
-                  <span className="text-gray-600">${product.price}</span>
+                  <span className="text-gray-600">₦{(product.price * 1000)}</span>
                 </div>
               </div>
 

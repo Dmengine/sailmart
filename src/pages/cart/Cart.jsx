@@ -106,7 +106,7 @@ const Cart = () => {
 
                 {/* Product Price */}
                 <div className="flex-1 text-lg font-medium md:text-base">
-                  {`$${item.price.toFixed(2)}`}
+                  {`₦${item.price * 1000}`}
                 </div>
 
                 {/* Quantity Input */}
@@ -145,7 +145,7 @@ const Cart = () => {
 
           {/* Total Price */}
           <h2 className="text-2xl font-bold mt-5">
-            {`Total: $${calculateTotal().toFixed(2)}`}
+            {`Total: ₦${calculateTotal() * 1000}`}
           </h2>
           <button
             onClick={handleProceedToCheckout}

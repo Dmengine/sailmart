@@ -106,7 +106,7 @@ const JeweleryCat = () => {
           </div>
           <div className="flex items-center justify-between">
             <span className="text-3xl md:text-xl font-bold text-gray-900 dark:text-white">
-              ${product.price.toFixed(2)}
+            ₦{(product.price * 1000)}
             </span>
             <Link to={`/ProductList/${product.id}`}
               className="text-white bg-red-800 hover:bg-red-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-red-400"
