@@ -4,7 +4,6 @@ import { RiEyeLine } from "react-icons/ri";
 import { RiEyeOffLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { doCreateUserWithEmailAndPassword } from "../../firebase/auth";
-
 import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
@@ -16,19 +15,20 @@ const SignUp = () => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [seePassword, setSeePassword] = useState(false);
+
   const navigate = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     if (!isRegistering) {
       setIsRegistering(true);
       try {
-        // await doCreateUserWithEmailAndPassword(email, password);
-
         const userCredential = await doCreateUserWithEmailAndPassword(
           email,
           password
         );
+
         const user = userCredential.user;
 
         // ✅ Check if firstName and lastName are set before updating profile
@@ -38,13 +38,7 @@ const SignUp = () => {
           });
         }
 
-        const redirectPath =
-          localStorage.getItem("redirectAfterLogin") || "/home";
-        localStorage.removeItem("redirectAfterLogin");
-
-        navigate(redirectPath);
-
-        // navigate("/Login");
+        navigate("/");
       } catch (err) {
         setErrorMessage(err.message);
         setTimeout(() => setErrorMessage(""), 5000);
@@ -54,14 +48,19 @@ const SignUp = () => {
     }
   };
 
-  const showPassqord = () => {
+  const showPassword = () => {
     setSeePassword(!seePassword);
   };
+
   return (
     <div>
       <div className="lg:flex pt-12 pl-8 pb-12">
         <div className="w-80 ml-2 lg:w-1/2 mr-44 h-96 md:h-[800px]">
-          <img src="/side-image.png" alt="left image" className="w-full h-full"/>
+          <img
+            src="/side-image.png"
+            alt="left image"
+            className="w-full h-full"
+          />
         </div>
 
         <div className="ml-4 lg:w-1/2 mt-24">
@@ -105,7 +104,7 @@ const SignUp = () => {
               <div className="flex">
                 {" "}
                 <input
-                  type={seePassword ? "password" : "text"}
+                  type={seePassword ? "text" : "password"}
                   disabled={isRegistering}
                   autoComplete="new-password"
                   required
@@ -118,9 +117,15 @@ const SignUp = () => {
                   className="border-b-2 focus:outline-none border-gray-500 py-1 w-80 mb-4"
                 />
                 {seePassword ? (
-                  <RiEyeLine onClick={showPassqord} />
+                  <RiEyeOffLine
+                    onClick={showPassword}
+                    className="cursor-pointer"
+                  />
                 ) : (
-                  <RiEyeOffLine onClick={showPassqord} />
+                  <RiEyeLine
+                    onClick={showPassword}
+                    className="cursor-pointer"
+                  />
                 )}
               </div>
               <button

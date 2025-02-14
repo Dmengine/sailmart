@@ -12,13 +12,20 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { auth } from "../../firebase/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const Landing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartCount, isCartOpen, setIsCartOpen } = useCart();
+
+  const [searchInput, setSearchInput] = useState("");
+
   const navigate = useNavigate();
+
   const [userLoggedin, setUserLoggedin] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -34,18 +41,27 @@ const Landing = () => {
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
   useEffect(() => {
-    const token = localStorage.getItem("userToken");
-    if (token) {
-      setUserLoggedin(true);
-    } else {
-      setUserLoggedin(false);
-    }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUserLoggedin(currentUser);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("userToken");
-    setUserLoggedin(false);
-    navigate("/Login");
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error.message);
+    }
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/ProductList?search=${encodeURIComponent(searchInput)}`);
+    setSearchInput("");
   };
 
   return (
@@ -56,10 +72,6 @@ const Landing = () => {
           <h1 className="marquee">
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%
           </h1>
-        </div>
-        <div className="text-white hidden lg:flex md:items-center gap-4 md:gap-10">
-          <p>English - </p>
-          <img src="/DropDown.png" alt="dropdown.png" className="w-5" />
         </div>
       </div>
 
@@ -94,7 +106,7 @@ const Landing = () => {
                 {userLoggedin ? (
                   <button onClick={handleLogout}>Logout</button>
                 ) : (
-                  "SignUp"
+                  <Link to="/signup">SignUp</Link>
                 )}
               </li>
             </a>
@@ -102,13 +114,17 @@ const Landing = () => {
         </div>
 
         {/* Search Input */}
-        <div className="hidden p-5 md:flex items-center relative w-full max-w-[300px]">
-          <BsSearch className="absolute left-7 lg:left-7" size={15} />
-          <input
-            type="text"
-            placeholder="What are you looking for?"
-            className="w-full max-w-[240px] p-1 pl-8 rounded-sm border border-red-400 focus:outline-red-600"
-          />
+        <div className="hidden p-5 md:flex items-center relative w-full max-w-[300px] ">
+          <form onSubmit={handleSearch}>
+            <BsSearch className="absolute top-8  lg:left-7" size={13} />
+            <input
+              type="text"
+              placeholder="What are you looking for?"
+              className="w-full max-w-[240px] p-1 pl-8 rounded-sm border border-red-400 focus:outline-red-600"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
+          </form>
         </div>
 
         {/* Heart and Cart Icons */}
@@ -190,7 +206,7 @@ const Landing = () => {
                   {userLoggedin ? (
                     <button onClick={handleLogout}>Logout</button>
                   ) : (
-                    "SignUp"
+                    <Link to="/signup">SignUp</Link>
                   )}
                 </li>
               </a>
@@ -203,12 +219,16 @@ const Landing = () => {
               <Skeleton height={30} width={300} />
             ) : (
               <>
-                <BsSearch className="absolute left-3" size={15} />
-                <input
-                  type="text"
-                  placeholder="What are you looking for?"
-                  className="w-full p-2 pl-10 rounded-sm border border-red-400 focus:outline-red-600"
-                />
+                <form onSubmit={handleSearch}>
+                  <BsSearch className="absolute left-3 top-4" size={15} />
+                  <input
+                    type="text"
+                    placeholder="What are you looking for?"
+                    className="w-full p-2 pl-10 rounded-sm border border-red-400 focus:outline-red-600"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                  />
+                </form>
               </>
             )}
           </div>
