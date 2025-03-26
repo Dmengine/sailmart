@@ -200,7 +200,7 @@ const About = () => {
         </div>
         <div className="px-4 md:px-8 py-4 sm:py-10 flex flex-col gap-5 transition-transform duration-300 hover:scale-105">
           <img
-            src="/Taoheed_Balogun.png"
+            src="/Balogun T.JPG"
             alt=""
             className="w-60 h-70 max-w-82 rounded-xl object-cover shadow-md"
           />
